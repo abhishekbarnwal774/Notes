@@ -1,0 +1,244 @@
+1. Explain WebDriver driver = new ChromeDriver()
+
+WebDriver:
+WebDriver is an interface in Selenium, a popular automation testing framework for web applications.
+It is the main entry point for automating web browsers.
+driver:
+This is a variable name (you can choose any valid name) that holds an instance of the WebDriver.
+
+new ChromeDriver():
+This part creates a new instance of the ChromeDriver class.
+ChromeDriver is a specific implementation of the WebDriver interface for the Google Chrome browser.
+========================================================================================================================================
+2.Types of wait.
+	Selenium WebDriver provides three commands to implement waits in tests.They are:
+a.Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time before throwing an exception. Once this time is set, WebDriver will wait for the element before the exception occurs.
+
+Syntax: driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+b.Explicit Wait: By using the Explicit Wait command, the WebDriver is directed to wait until a certain condition occurs before proceeding with executing the code.
+Syntax:
+	WebDriverWait wait = new WebDriverWait(driver,30);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
+
+c. Fluent Wait in Selenium marks the maximum amount of time for Selenium WebDriver to wait for a certain condition (web element) becomes visible. 
+Example:
+	//Declare and initialise a fluent wait
+	FluentWait wait = new FluentWait(driver);
+	wait.withTimeout(5000, TimeUnit.MILLISECONDS);
+	wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+	wait.ignoring(NoSuchElementException.class)
+	wait.until(ExpectedConditions.alertIsPresent());
+
+========================================================================================================================================
+
+3. Explain Public static void main (String args [])
+
+a.The public keyword is an access specifies, which allows the programmer to control the visibility of class members.c.
+b.The keyword static allows main ( ) to be called without having to instantiate a particular instance of the class.
+c.The keyword void simply tells the compiler that main ( ) does not return a value.
+d.Main ( ) is the method, called when a Java application begins.
+e.String args [ ] declares a parameter named args, which is an array of instances of the class String
+
+========================================================================================================================================
+4. What are the common mistake we do during automating test cases?
+
+a. Not Calculating Return on Investment (ROI)-Failing to assess whether the effort put into automation will yield a positive return on investment.
+b.Lack of a Formal Automation Plan or Goal-Without a guideline or test plan, automation efforts can become directionless.
+c.Automating Large Test Cases in a Single Go-Automating massive test cases all at once can lead to maintenance challenges and inefficiencies.
+
+========================================================================================================================================
+5.how will you handle Exception?
+
+Handling exceptions is crucial in software development to ensure that programs gracefully handle unexpected situations. Here are some common practices for handling exceptions in Java:
+
+a. Try-Catch Blocks:
+
+try {
+    // Code that might throw an exception
+    int result = divide(10, 0);
+} catch (ArithmeticException e) {
+    // Handle the exception (e.g., log, display an error message)
+    System.out.println("Error: Division by zero");
+}
+
+b. Multiple Catch Blocks:
+You can have multiple catch blocks to handle different types of exceptions.
+
+try {
+    // Code that might throw exceptions
+} catch (FileNotFoundException e) {
+    // Handle file not found exception
+} catch (IOException e) {
+    // Handle other IO exceptions
+} catch (Exception e) {
+    // Handle any other exceptions
+}
+
+c. Finally Block:-The finally block executes regardless of whether an exception occurred or not.
+
+try {
+    // Code that might throw exceptions
+} catch (Exception e) {
+    // Handle exceptions
+} finally {
+    // Cleanup tasks (e.g., close files, release resources)
+}
+
+d. Logging Exceptions:
+Use logging frameworks (e.g., Log4j, SLF4J) to log exceptions.
+Logging helps diagnose issues during production.
+try {
+    // Code that might throw exceptions
+} catch (Exception e) {
+    logger.error("An error occurred", e);
+}
+
+
+========================================================================================================================================
+6. 1 divided by 0 how to handle exception
+
+
+try {
+       int result = divide(1, 0);
+} catch (ArithmeticException e) {
+    // Handle the exception (e.g., log, display an error message)
+    System.out.println("Error: Division by zero");
+}
+
+========================================================================================================================================
+7.Stale element exception?
+
+The Stale Element Reference Exception is a runtime error that occurs when an object’s state changes while your code is using it.
+This exception arises when an element that was previously accessible (attached to the DOM) becomes invalid.
+
+
+========================================================================================================================================
+8.the differences between CAPTCHA and reCAPTCHA:
+
+CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart):
+CAPTCHA is a challenge designed to differentiate between real human users and malicious bots.
+It requires users to pass a test to prove they are humans before accessing a web page or platform.
+Commonly found on login pages and pages with contact forms.
+
+reCAPTCHA:
+reCAPTCHA is a CAPTCHA system developed by scientist Luis von Ahn.
+It distinguishes between human users and automated bots by presenting challenges like image identification or puzzle-solving.
+Typically appears as a checkbox or interactive element on websites.
+
+========================================================================================================================================
+9.Xpath axes(Ancestor,Descentent,Following,Following-Sibling,Parnet,Child,Preceeding)
+
+i)ancestor: It specifies the ancestors of the current nodes which include the parents up to the root node.
+ii)ancestor-or-self: It specifies the current node and its ancestors.
+iii)attribute:	It specifies the attributes of the current node.
+iv)child: It specifies the children of the current node.
+v)descendant: It specifies the descendants of the current node i.e. the node's children up to the leaf node(no more children).
+vi)descendant-or-self: It specifies the current node and it's descendants.
+vii)following: It specifies all nodes that come after the current node.
+viii)following-sibling:	It specifies the following siblings of the context node. Siblings are at the same level as the current node and share it's parent.
+ix)namespace:It specifies the namespace of the current node.
+x)parent: It specifies the parent of the current node.
+xi)preceding: It specifies all nodes that come before the current node (i.e. before it's opening tag).
+xii)self:	It specifies the current node.
+
+========================================================================================================================================
+10. How to convert String to Integer?
+We can convert String to an int in java using Integer.parseInt() method. To convert String into Integer, we can use Integer.valueOf() method which returns instance of Integer class.
+Eg: String str = "1234";
+int val = Integer.parseInt(str);
+
+Eg:
+String str = "1234";
+int val = Integer.valueOf(str);
+
+11.What Is Maven?
+Maven simplifies the build process, dependency management, and documentation for software projects.
+It is based on the Project Object Model (POM), which is an XML file containing project-related information.
+Key features:
+Build Automation: Maven automates the process of compiling, testing, packaging, and deploying your project.
+Dependency Management: It handles external libraries (dependencies) required by your project.
+Documentation Generation: Maven can generate project documentation (e.g., Javadoc) automatically.
+
+========================================================================================================================================
+12.  What is JUnit?
+
+JUnit  provides basic and advanced concepts of unit testing in java with examples.
+It is an open-source testing framework for java programmers. The java programmer can create test cases and test his/her own code.
+
+ **additional info 
+Annotations for Junit testing
+The Junit 4.x framework is annotation based, so let's see the annotations that can be used while writing the test cases.
+
+@Test annotation specifies that method is the test method.
+
+@Test(timeout=1000) annotation specifies that method will be failed if it takes longer than 1000 milliseconds (1 second).
+
+@BeforeClass annotation specifies that method will be invoked only once, before starting all the tests.
+
+@Before annotation specifies that method will be invoked before each test.
+
+@After annotation specifies that method will be invoked after each test.
+
+@AfterClass annotation specifies that method will be invoked only once, after finishing all the tests.
+
+
+========================================================================================================================================
+13.What is Selenium Grid?
+Selenium Grid is a powerful testing tool that allows you to run WebDriver scripts on remote machines in parallel across multiple browsers and versions. Here’s what you need to know about Selenium Grid:
+
+Purpose and Benefits:
+Parallel Execution: Selenium Grid enables you to execute tests concurrently on different machines, saving time and improving efficiency.
+Cross-Browser Testing: You can test your application across various browsers (e.g., Chrome, Firefox, Edge) simultaneously.
+Cross-Platform Testing: Run tests on different operating systems (Windows, macOS, Linux) without manual intervention.
+
+
+========================================================================================================================================
+**Out of Syllabus
+14. BrowserStack and Sauce Labs 
+
+BrowserStack and Sauce Labs, two popular cloud-based testing platforms:
+BrowserStack:
+Offers a wide range of devices and platforms for testing.
+Provides extensive coverage for various browsers, operating systems, and mobile devices.
+Sauce Labs:
+Also provides a comprehensive set of real devices and emulators for testing.
+Strong focus on supporting the latest browsers and platforms.
+
+========================================================================================================================================
+15. What is a window handle?
+It is a unique identifier that holds the address of all the windows. 
+Think of it as a pointer to a window, which returns the string value. 
+It is assumed that each browser will have a unique window handle.
+ This window handle function helps to retrieve the handles of all windows.
+
+Eg: String currentWindowHandle = driver.getWindowHandle();
+
+
+========================================================================================================================================
+16.frame handling
+In Selenium, frame handling refers to the process of interacting with web pages that contain iframes (inline frames) or nested frames.
+
+Eg:
+// Switch to the iframe by ID
+driver.switchTo().frame("myIframe");
+
+// Perform actions within the iframe
+WebElement iframeElement = driver.findElement(By.id("elementInsideIframe"));
+iframeElement.click();
+
+// Switch back to the main page
+driver.switchTo().defaultContent();
+========================================================================================================================================
+17.Windows popup
+In Selenium, handling pop-up windows (also known as browser windows or dialogs) is essential for comprehensive test automation. Let’s explore how to deal with different types of pop-ups:
+
+Alerts:
+Alerts are simple message boxes that appear on the screen, often used for notifications, warnings, or confirmation prompts.
+To handle alerts in Selenium WebDriver, use the following methods:
+driver.switchTo().alert().accept(): Clicks the “OK” button.
+driver.switchTo().alert().dismiss(): Clicks the “Cancel” or “Close” button.
+driver.switchTo().alert().getText(): Retrieves the alert message.
+driver.switchTo().alert().sendKeys("Text"): Enters data into the alert (for prompt alerts).
+========================================================================================================================================
+
