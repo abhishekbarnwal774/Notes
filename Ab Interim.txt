@@ -1,0 +1,3118 @@
+===========================================================**ABHI**=============================================================================
+1. Why is Java a platform-independent language?
+Answer: Java is platform-independent because it compiles code into platform-neutral bytecode. 
+This bytecode can run on any system with a Java Runtime Environment (JRE) installed.
+
+========================================================================================================================================
+
+2.Explain the concept of multithreading in Java.
+Answer: Multithreading allows concurrent execution of multiple threads within a single process.
+Threads share the same memory space but execute independently.
+========================================================================================================================================
+
+
+3.What is the difference between ArrayList and LinkedList?
+Answer: ArrayList: Dynamic array, faster random access, slower insertion/deletion.
+LinkedList: Doubly linked list, faster insertion/deletion, slower random access.
+
+========================================================================================================================================
+
+
+4.What are the new features introduced in Java 8?
+Lambdas, functional interfaces, default methods, streams, and the java.time package.
+
+========================================================================================================================================
+
+
+5.What is the purpose of the finalize() method?
+The finalize() method is called by the garbage collector before reclaiming an object’s memory.
+It allows an object to perform cleanup operations.(to cleanup the memory)
+
+========================================================================================================================================
+
+
+6.What is HashTable in Java?
+
+In Java, a Hashtable is a data structure that maps keys to values. It is represented by the Hashtable class and implements the Map interface. Here are 
+some key points about Java’s Hashtable:
+
+Structure:
+A Hashtable is essentially an array of lists, where each list is called a bucket.
+The position of a bucket is determined by calling the hashcode() method on the key.
+It stores values based on their associated keys.
+Characteristics:
+A Hashtable contains unique elements.
+It does not allow null keys or values.
+The class is synchronized, making it thread-safe.
+The initial default capacity is 11, with a load factor of 0.75.
+Declaration:
+Java
+
+public class Hashtable<K, V> extends Dictionary<K, V> implements Map<K, V>, Cloneable, Serializable
+Constructors:
+Hashtable(): Creates an empty hashtable with the default capacity and load factor.
+Hashtable(int capacity): Creates a hash table with a specified initial capacity.
+Hashtable(int capacity, float loadFactor): Creates a hash table with a given capacity and load factor.
+Hashtable(Map<? extends K, ? extends V> t): Creates a new hash table with the same mappings as the provided map.
+Methods (some examples):
+clear(): Resets the hash table.
+clone(): Returns a shallow copy of the Hashtable.
+compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction): Computes a new value for the specified key.
+elements(): Returns an enumeration of the values in the hash table.
+entrySet(): Provides a set view of the mappings in the map.
+Remember that a Hashtable is a useful tool for efficient key-value mapping in Java!
+
+========================================================================================================================================
+
+
+7.How do you handle drop downs?
+
+By using Select.
+Select dropdown = new Select(dropdownElement);
+
+========================================================================================================================================
+
+8.What is Page Factory? 
+
+
+Page Factory is a factory class in Selenium for implementing the Page Object Model. It's an optimized version of the POM for Selenium 
+WebDriver, which follows the separation techniques for handling the object repositories and the test cases. It's a class that extends from 
+the web driver classes.
+
+========================================================================================================================================
+
+9. String Buffer and String Builder?
+
+StringBuffer:
+StringBuffer is a class that provides much of the functionality of strings.
+It represents fixed-length, immutable character sequences.
+Key features:
+Thread-safe: StringBuffer is designed to be thread-safe, meaning it can be safely used in multi-threaded environments.
+Growable and writable: You can insert characters and substrings in the middle or append them to the end. The buffer automatically grows to 
+accommodate additions.
+Preallocated space: It often has more characters preallocated than needed to allow for growth.
+To create a StringBuffer, you can use:
+Java
+
+StringBuffer str = new StringBuffer();
+Example:
+Java
+
+public class Example {
+    public static void main(String[] args) {
+        StringBuffer str = new StringBuffer("Hello");
+        str.append(" World!");
+        System.out.println(str); // Output: Hello World!
+    }
+}
+
+
+StringBuilder:
+StringBuilder is similar to StringBuffer but is not thread-safe.
+It represents a mutable sequence of characters.
+Key features:
+Not thread-safe: Unlike StringBuffer, StringBuilder is not synchronized, making it faster for single-threaded programs.
+Mutable: You can modify the content without creating a new object.
+
+========================================================================================================================================
+
+10.Stream.reduce()
+
+Reduction stream operations allow us to produce a single result 
+from a sequence of elements by repeatedly applying a combining 
+operation to those elements.
+
+========================================================================================================================================
+
+11. Access Specifiers?
+
+Private:
+The private access modifier restricts access to only within the class where the member is defined.
+Default (Package-Private):
+When no access modifier is specified (i.e., the default), it is accessible only within the same package.
+It provides more accessibility than private.
+Protected:
+The protected access modifier allows access within the package and by subclasses (even if they are in a different package).
+If no subclass is created, it remains inaccessible from outside the package.
+Public:
+The public access modifier allows unrestricted access from anywhere (within the class, outside the class, within the package, and outside the 
+package).
+
+========================================================================================================================================
+
+12.Encapsulation?
+
+Encapsulation in Java is a fundamental concept in object-oriented programming (OOP). It refers to the bundling of data and methods that 
+operate on that data within a single unit, which is called a class in Java. Let’s explore the key aspects of encapsulation:
+
+Data Hiding:
+Encapsulation hides the implementation details of a class from outside access.
+Instance variables (also known as fields) of a class are declared as private, meaning they can only be accessed within the class itself.
+By restricting direct access to instance variables, encapsulation ensures that the internal state of the class remains consistent and protected.
+Public Interface:
+To allow controlled access to the instance variables, public methods called getters and setters are defined.
+Getters retrieve the values of instance variables, while setters modify them.
+By using getters and setters, the class can enforce its own data validation rules and provide a well-defined public interface for interaction.
+Example: Consider the following example of encapsulation:
+Java
+
+class Person {
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("John");
+        person.setAge(30);
+        System.out.println("Name: " + person.getName());
+        System.out.println("Age: " + person.getAge());
+    }
+}
+Output:
+Name: John
+Age: 30
+
+Advantages of Encapsulation:
+Data Hiding: It restricts access to data members, preventing direct manipulation.
+Abstraction: The class is exposed to the world without revealing implementation details.
+Consistency: By using setters, the class can ensure valid data updates.
+
+========================================================================================================================================
+
+13. Throw vs Throws
+
+throw:
+The throw keyword is used to explicitly throw an exception from within a method or a block of code.
+It allows you to raise an exception programmatically.
+Key points:
+You can use throw to propagate unchecked exceptions (e.g., RuntimeException subclasses).
+It is followed by an instance of the exception class that you want to throw.
+The throw keyword is used within the method or block of code.
+
+throws:
+The throws keyword is used in the method signature to declare which exceptions might be thrown by the function during execution.
+It does not throw exceptions itself; rather, it indicates that the method may propagate certain exceptions.
+Key points:
+You can use throws to declare both checked and unchecked exceptions.
+Multiple exceptions can be declared using throws.
+The throws keyword is used with the method signature.
+
+========================================================================================================================================
+
+14. Checked vs unchecked Exceptions
+
+Checked Exceptions:
+Checked exceptions are validated at compile time.
+If a method throws a checked exception, the calling method must either handle the exception using a try-catch block or specify the exception 
+using the throws keyword.
+Examples of checked exceptions include IOException and InterruptedException.
+
+Unchecked Exceptions:
+Unchecked exceptions are not validated at compile time.
+They include exceptions under the Error and RuntimeException classes.
+Programmers are not forced to handle or declare unchecked exceptions.
+For example, an ArithmeticException is an unchecked exception that occurs during runtime
+
+========================================================================================================================================
+
+15. Set vs Map?
+
+Set:
+The Set interface is part of the Java Collections Framework.
+It represents an unordered collection of unique elements.
+Key characteristics of a Set:
+No duplicates: A Set cannot contain duplicate elements.
+No insertion order: The elements in a Set are not stored in any specific order.
+Use cases:
+When you need to store a group of distinct elements.
+For implementing mathematical sets.
+
+
+Map:
+The Map interface also belongs to the Java Collections Framework.
+It stores data as key-value pairs.
+Key characteristics of a Map:
+Associative relationship: Each value is associated with a unique key.
+Efficient retrieval: You can access values directly using their keys.
+Different implementations: Common implementations include TreeMap, LinkedHashMap, and HashMap.
+
+========================================================================================================================================
+
+16. Garbage Collection?
+
+garbage collection is the process by which Java programs perform automatic memory management.
+When Java programs run on the Java Virtual Machine (JVM), objects are created on the heap, which is a portion of memory dedicated to the program.
+The main objective of garbage collection is to free up memory by destroying unreachable objects that are no longer in use.
+It is done by using finalize.
+
+========================================================================================================================================
+
+17.Multithreading??
+
+Multithreading in Java allows concurrent execution of two or more parts of a program, maximizing CPU utilization. Each part of such a program is 
+called a thread. Threads are lightweight processes within a single process. 
+
+========================================================================================================================================
+
+18. Thread class vs Runnable Interface?
+
+Extending the Thread class:
+Cannot extend any other class due to Java’s lack of multiple inheritance.
+Provides inbuilt methods like yield(), interrupt(), etc.
+Implementing the Runnable interface:
+Allows extending other base classes.
+Basic thread functionality without additional inbuilt methods.
+Provides an object that can be shared among multiple threads
+
+========================================================================================================================================
+
+19. Lifecycle of threads?
+
+New State -> Runnable State -> Blocked State -> Waiting State ->Terminated State
+
+========================================================================================================================================
+
+20. Spring boot annotations?
+
+@Autowired: This annotation enables auto-wiring of Spring beans. It can be used on setter methods, instance variables, and constructors. 
+The Spring container auto-wires the bean by matching data types.
+@Configuration: Applied at the class level, this annotation marks a class as a source of bean definitions for the Spring container.
+@ComponentScan: Used to scan a package for beans, especially when combined with @Configuration. You can specify base packages to scan for Spring components.
+@Bean: A method-level annotation that replaces the XML <bean> tag. It instructs the method to produce a bean managed by the Spring container.
+@Component: Marks a Java class as a bean. The Spring Framework identifies classes annotated with @Component during classpath scanning and configures them 
+as Spring Beans.
+@Controller: A specialization of @Component, used for web request handling. It serves web pages and often works with @RequestMapping
+@Service: Also used at the class level, it indicates that the class contains business logic.
+
+========================================================================================================================================
+
+21.SLF4J ??
+
+SLF4J (Simple Logging Facade for Java) is a widely used logging library that provides a unified abstraction for logging in Java applications
+
+========================================================================================================================================
+
+22. Lambda expressions and write the code?
+
+Lambda expressions (also known as anonymous functions or closures) are concise ways to represent small blocks of code. They are particularly useful 
+when you need to pass behavior as an argument to a method or function.
+
+// Lambda expression to double the input value
+(int x) -> x * 2
+
+========================================================================================================================================
+
+23. Stream API ??
+
+
+A stream in Java represents a sequence of objects.
+It supports various methods that can be pipelined to produce the desired result.
+Unlike data structures, streams do not store data; they operate on existing collections, arrays, or I/O channels.
+Creating a Stream:
+To create a stream, you can use the following syntax:
+
+
+Stream<T> stream;
+
+map(): Applies a function to each element and returns a new stream.
+
+List<Integer> numbers = Arrays.asList(2, 3, 4, 5);
+List<Integer> squares = numbers.stream().map(x -> x * x).collect(Collectors.toList());
+
+
+filter(): Selects elements based on a given predicate.
+
+List<String> names = Arrays.asList("Reflection", "Collection", "Stream");
+List<String> filteredNames = names.stream().filter(s -> s.startsWith("S")).collect(Collectors.toList());
+
+
+sorted(): Sorts the stream.
+
+List<String> sortedNames = names.stream().sorted().collect(Collectors.toList());
+
+collect(): Collects the stream elements into a collection (e.g., list, set, map).
+forEach(): Applies an action to each element.
+reduce(): Performs a reduction operation (e.g., sum, maximum, minimum).
+
+========================================================================================================================================
+
+24.Dependency Injection?
+
+Dependency Injection is a technique that allows objects or functions to receive their required dependencies from an external source, rather than 
+creating them internally.
+
+========================================================================================================================================
+
+25. Polymorphism vs Encapsulation?
+
+Polymorphism is a fundamental concept in OOP that allows objects of different classes to be treated uniformly through a common interface.
+It enables flexibility by allowing a single method or operation to behave differently based on the specific object it operates on.
+Key points:
+Method Overriding: Inheritance enables polymorphism. When a subclass provides its own implementation of a method that is already defined in its superclass, it’s called method overriding.
+Dynamic Binding: Polymorphism ensures that the appropriate method is executed based on the actual type of the object at runtime.
+
+
+Encapsulation is about bundling data (attributes) and methods (functions) that operate on that data into a single unit (i.e., a class).
+It provides security, control, and abstraction:
+Security: By hiding internal details, encapsulation prevents unauthorized access to an object’s state.
+Control: Access to attributes is regulated through methods (getters and setters), allowing validation and restrictions.
+Abstraction: Users of the class interact with its public methods, abstracting away the implementation details.
+
+========================================================================================================================================
+
+26.  Serialization and Deserialization??
+
+Serialization involves converting complex data structures or objects into a format that can be easily transported or stored. Typically, this format is 
+represented as a stream of bytes.
+Key points:
+Purpose: Serialization allows objects to be saved to files, transmitted over networks, or stored in databases.
+Process: An object’s state is converted into a byte stream.
+Formats: Various formats can be used for serialization, including JSON, XML, and binary.
+JSON and XML are human-readable and easily parsed by other systems.
+Binary formats are often chosen for performance reasons.
+
+Deserialization is the reverse process of serialization.
+It involves taking a byte stream (from a file, network socket, etc.) and reconstructing the original data structure or object.
+Key points:
+Purpose: Deserialization recreates an object from its serialized form.
+Tools: In Java, the ObjectInputStream class is used for binary deserialization, while libraries like Jackson parse JSON formats.
+
+========================================================================================================================================
+
+27. Map, Set, List in java??
+
+List: A List in Java is an ordered collection (also known as a sequence). The user of this interface has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list. Lists may contain duplicate elements. In Java, List is implemented by classes like ArrayList, LinkedList, Stack, and Vector.
+
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+list.add("Cherry");
+System.out.println(list);  // prints [Apple, Banana, Cherry]
+
+
+Set: A Set is a Collection that cannot contain duplicate elements. It models the mathematical set abstraction. In Java, Set is implemented by classes like HashSet, LinkedHashSet, and TreeSet.
+
+Set<String> set = new HashSet<>();
+set.add("Apple");
+set.add("Banana");
+set.add("Apple");
+System.out.println(set);  // prints [Apple, Banana]
+
+Map: The Map interface maps unique keys to values. A key is an object that you use to retrieve a value at a later date. In Java, Map is implemented by classes like HashMap, TreeMap, and LinkedHashMap.
+Map<String, Integer> map = new HashMap<>();
+map.put("Apple", 1);
+map.put("Banana", 2);
+System.out.println(map);  // prints {Apple=1, Banana=2}
+
+========================================================================================================================================
+
+28.String Constant Pool
+
+The String Constant Pool in Java is a special area in the heap memory where the JVM stores string literals. This concept is also known as the String 
+Intern Pool
+
+========================================================================================================================================
+
+29. .run() method in java main method??
+
+The .run() method is commonly used in the context of threads in Java. It contains the code that is executed when a thread is started. 
+
+========================================================================================================================================
+
+30. @Autowired??
+
+The @Autowired annotation in Spring Framework is used for automatic dependency injection. It can be applied to fields, setter methods, and constructors
+
+========================================================================================================================================
+
+31. HashMap??
+
+A HashMap is a part of the Java Collections Framework and is in the java.util package. It is a data structure that uses a hash table to store key-value pairs
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Adding elements to the map
+        map.put("Alice", 10);
+        map.put("Bob", 15);
+        map.put("Charlie", 20);
+
+        // Printing the map
+        System.out.println(map);
+
+        // Accessing a value
+        int aliceScore = map.get("Alice");
+        System.out.println("Alice's score: " + aliceScore);
+    }
+}
+
+========================================================================================================================================
+
+32. Functional Interface??
+
+A functional interface in Java is an interface that contains exactly one abstract method. This concept is also known as Single Abstract Method Interfaces 
+or SAM Interfaces
+This interface can be implemented by any class or represented using a lambda expression.
+
+========================================================================================================================================
+
+33. Static keyword??
+
+The static keyword in Java is mainly used for memory management. It can be applied to variables, methods, blocks, and nested classes. 
+Here are some key points about the static keyword:
+
+Static Variables: If you declare any variable as static, it is known as a static variable. The static variable can be used to refer to the common 
+property of all objects. The static variable gets memory only once in the class area at the time of class loading.
+Static Methods: Static methods belong to the class rather than the instance of the class. They can be accessed directly using the class name. 
+Static methods can be overloaded, but they cannot be overridden
+
+========================================================================================================================================
+
+34. Constructor??
+
+A constructor in Java is a special method that is used to initialize objects. Here are some key points about constructors:
+
+Initialization: The constructor is called when an object of a class is created. It can be used to set initial values for object attributes.
+Similar to Methods: In Java, a constructor is a block of codes similar to a method.
+Memory Allocation: At the time of calling the constructor, memory for the object is allocated in the memory.
+Automatic Call: Every time an object is created using the new() keyword, at least one constructor is called123. It calls a default constructor if there is 
+no constructor available in the class.
+Types of Constructors: There are two types of constructors in Java: no-arg constructor (default constructor), and parameterized constructor.
+Rules for Creating Constructors: There are two rules defined for the constructor:
+Constructor name must be the same as its class name.
+A Constructor must have no explicit return type.
+
+========================================================================================================================================
+
+35. Compile time polymorphism vs run time polymorphism??
+
+In Java, polymorphism is the ability of an object to take on many forms. There are two types of polymorphism: compile-time polymorphism and 
+runtime polymorphism12.
+
+Compile-Time Polymorphism: Also known as static or early binding. It is achieved through method overloading12. Method overloading allows you to 
+have more than one method with the same name in a class, but with different parameters or signatures12. The compiler determines which method to call 
+based on the method signatures
+
+public class GFG {
+    public static int add(int a,  int b) {
+        return a + b;
+    }
+    public static double add(double a,  double b) {
+        return a + b;
+    }
+    public static void main(String args[]) {
+        System.out.println(add(2,  3)); // Outputs: 5
+        System.out.println(add(2.0,  3.0)); // Outputs: 5.0
+    }
+}
+
+
+
+Runtime Polymorphism: Also known as dynamic or late binding. It is achieved through method overriding. Method overriding allows a child 
+class to provide a specific implementation of a method that is already provided by its parent class12. The Java Virtual Machine (JVM) determines the 
+proper method to call at runtime, not at compile time
+
+class Test {
+    public void method() {
+        System.out.println("Method 1");
+    }
+}
+public class GFG extends Test {
+    public void method() {
+        System.out.println("Method 2");
+    }
+    public static void main(String args[]) {
+        Test test = new GFG();
+        test.method(); // Outputs: Method 2
+    }
+}
+
+========================================================================================================================================
+
+
+36. final vs finally vs finalize??
+
+final: The final keyword is an access modifier used to apply restrictions on classes, methods, or variables.
+When used with variables, it makes them constants, meaning their values cannot be changed once initialized.
+When used with methods, it prevents them from being overridden by subclasses12.
+When used with classes, it prevents them from being subclassed
+
+finally: The finally keyword is used in exception handling. It is a block of code that will be executed after a try/catch block, regardless of whether an 
+exception was thrown or not. This is typically used for cleanup activities
+
+finalize: The finalize keyword is a method used in the context of garbage collection. It is a method of the Object class that the Java Virtual Machine 
+(JVM) calls just before an object is garbage collected. This method can be overridden to ensure proper cleanup of resources before an object is garbage 
+collected.
+
+In summary, final is used to create constants or non-modifiable elements, finally is used in exception handling to execute code regardless of an exception 
+being thrown, and finalize is a special method called by the garbage collector before an object is reclaimed
+
+========================================================================================================================================
+
+37. Super() keyword??
+
+The super() keyword in Java is a reference variable that is used to refer to the immediate parent class
+========================================================================================================================================
+
+
+38. .equals() vs equality operator??
+
+.equals() Method: The .equals() method is defined in the Object class, and it is used for comparing the values of two objects. It checks if the values are 
+the same for both objects. For example, when used with strings, it checks if all characters match in both strings. If a class does not override the 
+equals() method, then by default, it uses the equals(Object o) method of the closest parent class that has overridden this method.
+== Operator: The == operator, also known as the equality operator, is used to compare the references of two objects. It checks if both objects point to 
+the same memory location. If they do, it returns true; otherwise, it returns false
+
+
+========================================================================================================================================
+
+39. this() keyword??
+ 
+Inside constructor if the parameter's variable and object's variable's name is same. So, to denote or indicate the object's variable we have to use this keyword.
+
+========================================================================**MANNA**================================================================
+
+1. Explain WebDriver driver = new ChromeDriver()
+
+WebDriver:
+WebDriver is an interface in Selenium, a popular automation testing framework for web applications.
+It is the main entry point for automating web browsers.
+driver:
+This is a variable name (you can choose any valid name) that holds an instance of the WebDriver.
+
+new ChromeDriver():
+This part creates a new instance of the ChromeDriver class.
+ChromeDriver is a specific implementation of the WebDriver interface for the Google Chrome browser.
+========================================================================================================================================
+2.Types of wait.
+	Selenium WebDriver provides three commands to implement waits in tests.They are:
+a.Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time before throwing an exception. Once this time is set, WebDriver will wait for the element before the exception occurs.
+
+Syntax: driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+b.Explicit Wait: By using the Explicit Wait command, the WebDriver is directed to wait until a certain condition occurs before proceeding with executing the code.
+Syntax:
+	WebDriverWait wait = new WebDriverWait(driver,30);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
+
+c. Fluent Wait in Selenium marks the maximum amount of time for Selenium WebDriver to wait for a certain condition (web element) becomes visible. 
+Example:
+	//Declare and initialise a fluent wait
+	FluentWait wait = new FluentWait(driver);
+	wait.withTimeout(5000, TimeUnit.MILLISECONDS);
+	wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+	wait.ignoring(NoSuchElementException.class)
+	wait.until(ExpectedConditions.alertIsPresent());
+
+========================================================================================================================================
+
+3. Explain Public static void main (String args [])
+
+a.The public keyword is an access specifies, which allows the programmer to control the visibility of class members.c.
+b.The keyword static allows main ( ) to be called without having to instantiate a particular instance of the class.
+c.The keyword void simply tells the compiler that main ( ) does not return a value.
+d.Main ( ) is the method, called when a Java application begins.
+e.String args [ ] declares a parameter named args, which is an array of instances of the class String
+
+========================================================================================================================================
+4. What are the common mistake we do during automating test cases?
+
+a. Not Calculating Return on Investment (ROI)-Failing to assess whether the effort put into automation will yield a positive return on investment.
+b.Lack of a Formal Automation Plan or Goal-Without a guideline or test plan, automation efforts can become directionless.
+c.Automating Large Test Cases in a Single Go-Automating massive test cases all at once can lead to maintenance challenges and inefficiencies.
+
+========================================================================================================================================
+5.how will you handle Exception?
+
+Handling exceptions is crucial in software development to ensure that programs gracefully handle unexpected situations. Here are some common practices for handling exceptions in Java:
+
+a. Try-Catch Blocks:
+
+try {
+    // Code that might throw an exception
+    int result = divide(10, 0);
+} catch (ArithmeticException e) {
+    // Handle the exception (e.g., log, display an error message)
+    System.out.println("Error: Division by zero");
+}
+
+b. Multiple Catch Blocks:
+You can have multiple catch blocks to handle different types of exceptions.
+
+try {
+    // Code that might throw exceptions
+} catch (FileNotFoundException e) {
+    // Handle file not found exception
+} catch (IOException e) {
+    // Handle other IO exceptions
+} catch (Exception e) {
+    // Handle any other exceptions
+}
+
+c. Finally Block:-The finally block executes regardless of whether an exception occurred or not.
+
+try {
+    // Code that might throw exceptions
+} catch (Exception e) {
+    // Handle exceptions
+} finally {
+    // Cleanup tasks (e.g., close files, release resources)
+}
+
+d. Logging Exceptions:
+Use logging frameworks (e.g., Log4j, SLF4J) to log exceptions.
+Logging helps diagnose issues during production.
+try {
+    // Code that might throw exceptions
+} catch (Exception e) {
+    logger.error("An error occurred", e);
+}
+
+
+========================================================================================================================================
+6. 1 divided by 0 how to handle exception
+
+
+try {
+       int result = divide(1, 0);
+} catch (ArithmeticException e) {
+    // Handle the exception (e.g., log, display an error message)
+    System.out.println("Error: Division by zero");
+}
+
+========================================================================================================================================
+7.Stale element exception?
+
+The Stale Element Reference Exception is a runtime error that occurs when an object’s state changes while your code is using it.
+This exception arises when an element that was previously accessible (attached to the DOM) becomes invalid.
+
+
+========================================================================================================================================
+8.the differences between CAPTCHA and reCAPTCHA:
+
+CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart):
+CAPTCHA is a challenge designed to differentiate between real human users and malicious bots.
+It requires users to pass a test to prove they are humans before accessing a web page or platform.
+Commonly found on login pages and pages with contact forms.
+
+reCAPTCHA:
+reCAPTCHA is a CAPTCHA system developed by scientist Luis von Ahn.
+It distinguishes between human users and automated bots by presenting challenges like image identification or puzzle-solving.
+Typically appears as a checkbox or interactive element on websites.
+
+========================================================================================================================================
+9.Xpath axes(Ancestor,Descentent,Following,Following-Sibling,Parnet,Child,Preceeding)
+
+i)ancestor: It specifies the ancestors of the current nodes which include the parents up to the root node.
+ii)ancestor-or-self: It specifies the current node and its ancestors.
+iii)attribute:	It specifies the attributes of the current node.
+iv)child: It specifies the children of the current node.
+v)descendant: It specifies the descendants of the current node i.e. the node's children up to the leaf node(no more children).
+vi)descendant-or-self: It specifies the current node and it's descendants.
+vii)following: It specifies all nodes that come after the current node.
+viii)following-sibling:	It specifies the following siblings of the context node. Siblings are at the same level as the current node and share it's parent.
+ix)namespace:It specifies the namespace of the current node.
+x)parent: It specifies the parent of the current node.
+xi)preceding: It specifies all nodes that come before the current node (i.e. before it's opening tag).
+xii)self:	It specifies the current node.
+
+========================================================================================================================================
+10. How to convert String to Integer?
+We can convert String to an int in java using Integer.parseInt() method. To convert String into Integer, we can use Integer.valueOf() method which returns instance of Integer class.
+Eg: String str = "1234";
+int val = Integer.parseInt(str);
+
+Eg:
+String str = "1234";
+int val = Integer.valueOf(str);
+
+11.What Is Maven?
+Maven simplifies the build process, dependency management, and documentation for software projects.
+It is based on the Project Object Model (POM), which is an XML file containing project-related information.
+Key features:
+Build Automation: Maven automates the process of compiling, testing, packaging, and deploying your project.
+Dependency Management: It handles external libraries (dependencies) required by your project.
+Documentation Generation: Maven can generate project documentation (e.g., Javadoc) automatically.
+
+========================================================================================================================================
+12.  What is JUnit?
+
+JUnit  provides basic and advanced concepts of unit testing in java with examples.
+It is an open-source testing framework for java programmers. The java programmer can create test cases and test his/her own code.
+
+ **additional info 
+Annotations for Junit testing
+The Junit 4.x framework is annotation based, so let's see the annotations that can be used while writing the test cases.
+
+@Test annotation specifies that method is the test method.
+
+@Test(timeout=1000) annotation specifies that method will be failed if it takes longer than 1000 milliseconds (1 second).
+
+@BeforeClass annotation specifies that method will be invoked only once, before starting all the tests.
+
+@Before annotation specifies that method will be invoked before each test.
+
+@After annotation specifies that method will be invoked after each test.
+
+@AfterClass annotation specifies that method will be invoked only once, after finishing all the tests.
+
+
+========================================================================================================================================
+13.What is Selenium Grid?
+Selenium Grid is a powerful testing tool that allows you to run WebDriver scripts on remote machines in parallel across multiple browsers and versions. 
+Here’s what you need to know about Selenium Grid:
+
+Purpose and Benefits:
+Parallel Execution: Selenium Grid enables you to execute tests concurrently on different machines, saving time and improving efficiency.
+Cross-Browser Testing: You can test your application across various browsers (e.g., Chrome, Firefox, Edge) simultaneously.
+Cross-Platform Testing: Run tests on different operating systems (Windows, macOS, Linux) without manual intervention.
+
+
+========================================================================================================================================
+**Out of Syllabus
+14. BrowserStack and Sauce Labs 
+
+BrowserStack and Sauce Labs, two popular cloud-based testing platforms:
+BrowserStack:
+Offers a wide range of devices and platforms for testing.
+Provides extensive coverage for various browsers, operating systems, and mobile devices.
+Sauce Labs:
+Also provides a comprehensive set of real devices and emulators for testing.
+Strong focus on supporting the latest browsers and platforms.
+
+========================================================================================================================================
+15. What is a window handle?
+It is a unique identifier that holds the address of all the windows. 
+Think of it as a pointer to a window, which returns the string value. 
+It is assumed that each browser will have a unique window handle.
+ This window handle function helps to retrieve the handles of all windows.
+
+Eg: String currentWindowHandle = driver.getWindowHandle();
+
+
+========================================================================================================================================
+16.frame handling
+In Selenium, frame handling refers to the process of interacting with web pages that contain iframes (inline frames) or nested frames.
+
+Eg:
+// Switch to the iframe by ID
+driver.switchTo().frame("myIframe");
+
+// Perform actions within the iframe
+WebElement iframeElement = driver.findElement(By.id("elementInsideIframe"));
+iframeElement.click();
+
+// Switch back to the main page
+driver.switchTo().defaultContent();
+========================================================================================================================================
+17.Windows popup
+In Selenium, handling pop-up windows (also known as browser windows or dialogs) is essential for comprehensive test automation. Let’s explore how to deal
+ with different types of pop-ups:
+
+Alerts:
+Alerts are simple message boxes that appear on the screen, often used for notifications, warnings, or confirmation prompts.
+To handle alerts in Selenium WebDriver, use the following methods:
+driver.switchTo().alert().accept(): Clicks the “OK” button.
+driver.switchTo().alert().dismiss(): Clicks the “Cancel” or “Close” button.
+driver.switchTo().alert().getText(): Retrieves the alert message.
+driver.switchTo().alert().sendKeys("Text"): Enters data into the alert (for prompt alerts).
+========================================================================================================================================
+18. Locators in Selenium.
+Selenium 3 has 8 locators namely ID, Name, class, XPath, CssSelectors, LinkText, PartialLinkText, and TagName which helps us to locate the web elements on
+ DOM.
+a. By ID-Locates an element using the ID attribute.
+Syntax- driver.findElement(By.id (<element ID>))
+
+b. By name	-Locates an element using the Name attribute.
+Syntax- driver.findElement(By.name (<element name>))	
+
+c. By class name-Locates an element using the Class attribute.
+Syntax- driver.findElement(By.className (<element class>))
+
+d. By tag name	-Locates an element using the HTML tag
+Syntax- driver.findElement(By.tagName (<htmltagname>))
+
+e.By link text-Locates a link using link text
+Syntax - driver.findElement(By.linkText (<linktext>))	
+
+f.By partial link text	-Locates a link using the link's partial text.
+Syntax - driver.findElement(By.partialLinkText (<linktext>))	
+
+g.By CSSLocates an element using the CSS selector.
+Syntax- driver.findElement(By.cssSelector (<css selector>))	
+
+h.By XPath -Locates an element using XPath query.
+Syntax - driver.findElement(By.xpath (<xpath>))	
+========================================================================================================================================
+19. Defect Life Cycle.
+Defect Life Cycle or Bug Life Cycle in software testing is the specific set of states that defect or bug goes through in its entire life. 
+
+The number of states that a defect goes through varies from project to project. Below  covers all possible states
+
+New: When a new defect is logged and posted for the first time. It is assigned a status as NEW.
+Assigned: Once the bug is posted by the tester, the lead of the tester approves the bug and assigns the bug to the developer team
+Open: The developer starts analyzing and works on the defect fix
+Fixed: When a developer makes a necessary code change and verifies the change, he or she can make bug status as “Fixed.”
+Pending retest: Once the defect is fixed the developer gives a particular code for retesting the code to the tester. Since the software testing remains pending from the testers end, the status assigned is “pending retest.”
+Retest: Tester does the retesting of the code at this stage to check whether the defect is fixed by the developer or not and changes the status to “Re-test.”
+========================================================================================================================================
+20. Regression Testing
+Regression Testing is the process of testing the modified parts of the code and the parts that might get affected
+due to the modifications to ensure that no new errors have been introduced in the software after the modifications have been made. 
+========================================================================================================================================
+21. User Acceptance Testing
+User Acceptance Testing is a testing methodology where clients/end users participate in product testing to validate the product against their requirements. It is done at the client’s site on the developer’s site.
+
+========================================================================================================================================
+22. Defect Leakage.
+ “Defect Leakage is the metric that is used to identify the efficiency of the QA testing i.e., 
+how many defects are missed/slipped during the QA testing. 
+========================================================================================================================================
+23. Test Plan
+Test Plan is a detailed document that outlines the Objective, strategies, timeline, goals, estimation, deadlines, 
+and resources needed for the successful completion of a project.
+========================================================================================================================================
+24. Test Case Functionality.
+A functional test case is a set of instructions that outlines how to test a specific function in a software application. 
+For example, if the application includes a feature to send emails, a functional test case might involve
+ checking whether an email is sent successfully when a user clicks the 'send' button.
+========================================================================================================================================
+25.Manual and automation Testing.
+
+i.Manual Testing is done manually by QA analyst (Human) whereas 
+Automation Testing is done with the use of script, code and automation tools (computer) by a tester.
+
+ii.Manual Testing process is not accurate because of the possibilities of human errors whereas 
+the Automation process is reliable because it is code and script based.
+
+iii.Manual Testing is a time-consuming process whereas Automation Testing is very fast.
+========================================================================================================================================
+26.What is the Selenium Framework?
+Selenium Framework is a suite of automation testing tools based on the JavaScript framework.
+
+It could run the tests directly on the target browser, drive the interactions on the required web page and rerun them without any manual input.
+It eliminates repetitive manual testing that consumes lots of time and effort.
+========================================================================================================================================
+27.Functional Testing
+Functional testing is a type of testing that seeks to establish whether each application feature works as per the software requirements. Each function is 
+compared to the corresponding requirement to ascertain whether its output is consistent with the end user's expectations.
+========================================================================================================================================
+28.Differences between Test Case and Test Scenario
+
+i.A test Case is a set of actions executed to verify particular features or functionality,
+ whereas a Test Scenario is any functionality that can be tested.
+ii.Test Cases are focused on what to test and how to test, while Test Scenario is more focused on what to test.
+iii.Test Cases are low-level actions, whereas Test Scenarios are high-level actions.
+iv. Test Case requires more resources and time for test execution, while Test Scenario requires fewer resources and time for test execution.
+========================================================================================================================================
+30.Types of black box testing
+Black-box testing is a type of software testing in which the tester is not concerned with the internal knowledge or implementation details of the software but rather focuses on validating the functionality based on the provided specifications or requirements.
+
+i.Functional Testing: This type of black box testing verifies that the software’s functions and features work as expected and adhere to the specified requirements.
+ii.Non-Functional Testing: Unlike functional testing, non-functional testing evaluates aspects of the software that are not related to its specific functions. It includes tests for performance, usability, security, scalability, reliability, and other quality attributes.
+iii.Regression Testing: Regression testing is performed to ensure that recent changes or updates to the software do not adversely affect existing functionality.
+iv.User Interface (UI) Testing: UI testing focuses on validating the user interface elements of the software, such as buttons, menus, forms, and layout. 
+v.Usability Testing: Usability testing assesses the software’s user-friendliness and how easily users can interact with it.
+vi.Boundary Value Analysis (BVA): BVA is a technique used to identify defects around the boundaries of input values. Test cases are designed with values at the edges of input ranges to assess how the software handles minimum and maximum limits.
+
+vii.Equivalence Partitioning: In this technique, the input domain is divided into groups of data that are expected to behave similarly. Test cases are then derived from these partitions to minimise redundant testing.
+vii.Ad-hoc Testing: Ad-hoc testing is an informal and unstructured testing approach where testers explore the software freely, executing test scenarios based on their intuition and experience. It helps identify defects that might be missed by formal test cases.
+
+viii.Compatibility Testing: Compatibility testing assesses how well the software performs across different environments, such as various browsers, operating systems, devices, and network configurations.
+ix.Security Testing: Security testing aims to identify vulnerabilities and weaknesses in the software’s security measures. Testers simulate attacks and check for potential security breaches.
+x.Localization and Internationalization Testing: These types of testing ensure that the software is adapted to different languages, cultures, and regional settings, and it functions correctly in various international environments.
+========================================================================================================================================
+31.Differences between Verification and Validation
+
+Verification is the process of checking that software achieves its goal without any bugs. It is the process to ensure whether the product that is developed
+ is right or not. 
+
+Validation is the process of checking whether the software product is up to the mark or in other words product has high level requirements. It is the 
+process of checking the validation of product i.e. it checks what we are developing is the right product. 
+========================================================================================================================================
+32.Difference between Assert and Verify in selenium
+In the case of assertions, if the assert condition is not met, test case execution will be aborted. The remaining tests are skipped, and the test case is marked as failed. These assertions are used as checkpoints for testing or validating business-critical transactions.
+
+In case of verify, tests will continue to run until the last test is executed even if assert conditions are not met. Verify or Soft Asserts will report the errors at the end of the test. Simply put, tests will not be aborted if any condition is not met. 
+========================================================================================================================================
+33.Difference between White Box testing and Black Box testing
+
+i.In Black Box, testing is done without the knowledge of the internal structure of program or application whereas 
+	in White Box, testing is done with knowledge of the internal structure of program.
+ii.When we compare Blackbox and Whitebox testing, Black Box test doesn’t require programming knowledge whereas
+	 the White Box test requires programming knowledge.
+iii.Black Box testing has the main goal to test the behavior of the software whereas
+	 White Box testing has the main goal to test the internal operation of the system
+========================================================================================================================================
+34.Alpha Testing Vs Beta Testing
+
+
+i.Alpha Testing is performed by the Testers within the organization whereas Beta Testing is performed by the end users.
+ii.Alpha Testing is performed at Developer’s site whereas Beta Testing is performed at Client’s location.
+iii.Reliability and Security testing are not performed in-depth in Alpha Testing while Reliability, Security and Robustness are checked during Beta Testing.
+iv.Alpha Testing requires testing environment while Beta Testing doesn’t require testing environment.
+
+========================================================================================================================================
+
+35.What is the difference between ‘/’ and ‘//’ in XPath?
+The single forward slash is used to specify the immediate child of the current node. 
+The double forward slash is used to specify all descendants (children, grandchildren, great-grandchildren, etc.) of the current node, regardless of their
+ level in the hierarchy.
+========================================================================================================================================
+36.Diff btwn alert and popup
+An alert inside a browser is a small window that appears on a web page and displays a message to users. A “popup” usually refers to a separate window or 
+tab that opens in a web browser.
+========================================================================================================================================
+37. Types of Testing
+
+Functional Testing:
+Functional testing focuses on verifying the functionality of the software system. It is a type of testing that is done to ensure that the system works as intended and meets the functional requirements specified by the stakeholders.Types of Functional Testing:
+	a. Unit Testing
+	b.Integration testing
+	c. System testing
+	d.Acceptance Testing
+
+
+Non Functional Testing
+Non-functional testing focuses on evaluating the non-functional aspects of the software system. This type of testing includes testing for performance, usability, reliability, scalability, and security.Types of Non-functional testing:
+	a. Security Testing
+	b.Performance Testing
+	c. Usability Testing
+	d. COmpabilty Testing	
+For indepth information visit: https://www.browserstack.com/guide/types-of-testing
+========================================================================================================================================
+38.latest version of selenium
+
+Answer: 4.19
+========================================================================================================================================
+================================================================**Sanskruti**========================================================================
+
+1.What is oops?
+
+Object-Oriented Programming (OOPs) is a programming paradigm that uses the concept of “objects” to design software. 
+
+Class: A class is like a blueprint for an object. It consists of data members and member functions, which can be accessed and used by creating an instance 
+of that class.
+
+Object: An object is a basic unit of OOP and represents real-life entities. An object is an instance of a class. 
+
+Data Abstraction: Data abstraction refers to providing only essential information about the data to the outside world, hiding the background details or 
+implementation.
+
+Encapsulation: Encapsulation is the mechanism that binds together code and the data it manipulates. In encapsulation, the data in a class is hidden from 
+other classes.
+
+Inheritance: Inheritance allows a class to inherit or acquire the properties of an existing class.
+
+Polymorphism: Polymorphism allows us to create methods with the same name but different method signatures.
+============================================================================================================================================================
+
+2.Why we use interface in multiple inheritance?
+
+Here are some reasons why we use interfaces in multiple inheritance:
+
+Avoid Method Ambiguity: Multiple inheritance can lead to ambiguity when methods with the same signature exist in both the superclasses and subclass.
+
+Separation of Concerns: Interfaces allow for a separation of concerns, allowing for more modular and reusable code.
+
+Here is an example of how to implement multiple inheritance using interfaces in Java1:
+
+Java
+
+// Declare the interfaces
+interface Walkable {
+  void walk();
+}
+
+interface Swimmable {
+  void swim();
+}
+
+// Implement the interfaces in a class
+class Duck implements Walkable, Swimmable {
+  public void walk() {
+    System.out.println("Duck is walking.");
+  }
+
+  public void swim() {
+    System.out.println("Duck is swimming.");
+  }
+}
+
+// Use the class to call the methods from the interfaces
+class Main {
+  public static void main(String[] args) {
+    Duck duck = new Duck();
+    duck.walk();
+    duck.swim();
+  }
+}
+
+============================================================================================================================================================
+
+3.String immutable?
+
+In Java, a String is immutable, which means once a String object is created, its data or state can’t be changed. 
+Security: Immutable String objects prevent unauthorized modifications, making the application more secure. For example, database usernames and passwords 
+are passed as strings to get database connections.
+
+Synchronization and Concurrency: Since String objects are immutable, we don’t have to worry about synchronization when sharing an object across multiple 
+threads.
+
+ClassLoader: A ClassLoader in Java uses a String object as an argument. If the String object were mutable, the value might change, leading to the wrong 
+class being loaded.
+
+Heap Space Efficiency: The immutability of String helps to minimize the usage in the heap memory. When a new String object is declared, the JVM checks 
+whether the value already exists in the String pool or not. If it exists, the same value is assigned to the new object.
+
+Here’s an example to illustrate the immutability of String in Java:
+
+Java
+
+class TestImmutableString {
+  public static void main(String args[]) {
+    String s = "Java";
+    s.concat(" String"); // concat() method appends the string at the end
+    System.out.println(s); // will print "Java" because strings are immutable objects
+  }
+}
+============================================================================================================================================================
+
+4. How we store more objects using collection and how sort that?
+
+In Java, you can store multiple objects using collections such as ArrayList, HashSet, LinkedList, etc. Here’s an example of storing objects in an 
+ArrayList:
+
+Java
+
+import java.util.ArrayList;
+
+class MyClass {
+  private String name;
+
+  public MyClass(String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<MyClass> list = new ArrayList<>();
+    list.add(new MyClass("Object1"));
+    list.add(new MyClass("Object2"));
+    list.add(new MyClass("Object3"));
+
+    for (MyClass obj : list) {
+      System.out.println(obj.getName());
+    }
+  }
+}
+
+To sort a collection, you can use the Collections.sort() method. This method sorts the elements present in the specified list of Collection in ascending 
+order. Here’s an example of sorting a collection of String objects:
+
+Java
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> list = new ArrayList<>();
+    list.add("Object3");
+    list.add("Object1");
+    list.add("Object2");
+
+    Collections.sort(list);
+
+    for (String str : list) {
+      System.out.println(str);
+    }
+  }
+}
+.
+
+If you want to sort a collection of user-defined objects, you need to make your class implement the Comparable interface and override the compareTo() 
+method. Here’s an example:
+
+Java
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+class MyClass implements Comparable<MyClass> {
+  private String name;
+
+  public MyClass(String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  @Override
+  public int compareTo(MyClass other) {
+    return this.name.compareTo(other.getName());
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<MyClass> list = new ArrayList<>();
+    list.add(new MyClass("Object3"));
+    list.add(new MyClass("Object1"));
+    list.add(new MyClass("Object2"));
+
+    Collections.sort(list);
+
+    for (MyClass obj : list) {
+      System.out.println(obj.getName());
+    }
+  }
+}
+============================================================================================================================================================
+
+5.Joins?
+
+In SQL, a JOIN is used to combine rows from two or more tables based on a related column between them. 
+Here are the different types of JOINs in SQL:
+
+INNER JOIN: Returns records that have matching values in both tables. Syntax:
+SELECT table1.column1, table1.column2, table2.column1, ...FROM table1
+INNER JOIN table2 ON table1.matching_column = table2.matching_column;
+
+LEFT JOIN (or LEFT OUTER JOIN): Returns all records from the left table, and the matched records from the right table12. If there is no match, the result 
+is NULL on the right side. 
+Syntax:
+SELECT table1.column1, table1.column2, table2.column1, ...
+FROM table1
+LEFT JOIN table2 ON table1.matching_column = table2.matching_column;
+
+RIGHT JOIN (or RIGHT OUTER JOIN): Returns all records from the right table, and the matched records from the left table. If there is no match, the result 
+is NULL on the left side. 
+Syntax:
+SELECT table1.column1, table1.column2, table2.column1, ...
+FROM table1
+RIGHT JOIN table2 ON table1.matching_column = table2.matching_column;
+
+FULL JOIN (or FULL OUTER JOIN): Returns all records when there is a match in either the left or the right table. If there is no match, the result is 
+NULL on both sides. 
+Syntax:
+SELECT table1.column1, table1.column2, table2.column1, ...
+FROM table1
+FULL JOIN table2 ON table1.matching_column = table2.matching_column;
+============================================================================================================================================================
+
+6.Is Java purely object oriented?
+
+Java is not considered a purely object-oriented programming language. Here are the reasons:
+
+Primitive Data Types: Java contains 8 primitive data types like char, boolean, byte, short, int, long, float, and double which are not objects. 
+These primitive data types can be used without the use of any object.
+
+Static Keyword: In a pure object-oriented language, we should access everything by message passing (through objects). But Java contains static variables 
+and methods that can be accessed directly without using objects.
+============================================================================================================================================================
+
+7.Abstraction?
+
+Abstraction in Java is a process of hiding the implementation details from the user, only the functionality will be provided to the user.
+
+Real-Life Example: Consider a real-life example of a man driving a car. The man only knows that pressing the accelerators will increase the speed of a car 
+or applying brakes will stop the car, but he does not know how on pressing the accelerator the speed is actually increasing2. He does not know about the 
+inner mechanism of the car or the implementation of the accelerator, brakes, etc in the car.
+
+// Abstract class
+abstract class Animal {
+  // Abstract method (does not have a body)
+  public abstract void animalSound();
+  // Regular method
+  public void sleep() {
+    System.out.println("Zzz");
+  }
+}
+
+// Subclass (inherit from Animal)
+class Pig extends Animal {
+  public void animalSound() {
+    // The body of animalSound() is provided here
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+class Main {
+  public static void main(String[]  args) {
+    Pig  myPig  = new Pig(); // Create a Pig object
+    myPig.animalSound();
+    myPig.sleep();
+  }
+}
+===========================================================================================================================================================
+
+8.Why main method is static?
+
+The main() method in Java is declared as static so that the Java Virtual Machine (JVM) can call it without creating an instance of the class containing 
+the main() method. No object required.
+===========================================================================================================================================================
+
+9.Concurrent hashmap?
+
+A ConcurrentHashMap in Java is a thread-safe implementation of the Map interface, which means multiple threads can access it simultaneously without any 
+synchronization issues. It’s part of the java.util.concurrent package and was introduced in Java 5 as a scalable alternative to the traditional HashMap 
+class.
+
+Here are some key features of ConcurrentHashMap:
+
+Thread-Safe: ConcurrentHashMap is thread-safe, i.e., multiple threads can operate on a single object without any complications.
+
+High Concurrency: ConcurrentHashMap supports full concurrency of retrievals and high expected concurrency for updates.
+
+Segment Locking or Bucket Locking: In ConcurrentHashMap, the object is divided into a number of segments according to the concurrency level. 
+
+Null Objects: Inserting null objects is not possible in ConcurrentHashMap as a key or value.
+
+Here is a simple example of how to use a ConcurrentHashMap:
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Main {
+  public static void main(String[] args) {
+    ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+    map.put("A", 1);
+    map.put("B", 2);
+    map.put("C", 3);
+    System.out.println("Map size: " + map.size());
+    int valueA = map.get("A");
+    System.out.println("Value of A: " + valueA);
+    map.remove("B");
+    System.out.println("Map size: " + map.size());
+  }
+}
+============================================================================================================================================================
+
+10.ArrayList vs LinkedList
+
+Here are some key differences between them:
+
+Internal Data Structure: ArrayList internally uses a dynamic array to store the elements.
+LinkedList internally uses a doubly linked list to store the elements.
+
+Performance: Manipulation with ArrayList is slow because it internally uses an array. If any element is removed from the array, all the bits are shifted 
+in memory. 
+Manipulation with LinkedList is faster than ArrayList because it uses a doubly linked list, so no bit shifting is required in memory.
+
+Memory Utilization: ArrayList is less memory efficient as compared to LinkedList. This is because LinkedList uses a doubly linked list which allows for 
+good memory utilization.
+============================================================================================================================================================
+
+11.Hashmap internal implementation?
+
+The HashMap in Java internally uses a HashTable to store the entries. Here’s how it works:
+
+HashTable: A HashTable stores the key-value pairs in an array-based structure, and it uses a hashing function to map keys to specific indices in the 
+array. The array is referred to as a bucket array.
+
+Bucket Array: The HashMap class stores an array of Entry objects, where each Entry object represents a key-value pair. If two or more keys map to the 
+same index in the array, a linked list of Entry objects is created at that index to handle collisions.
+
+Hashing: Hashing is a process of converting an object into integer form by using the method hashCode(). It’s necessary to write the hashCode() method 
+properly for better performance of HashMap.
+
+equals() Method: This method is used to check whether 2 objects are equal or not1HashMap uses equals() to compare the key to whether they are equal or not.
+============================================================================================================================================================
+
+12.Abstract vs interface
+
+Abstract classes and interfaces are both used to achieve abstraction in Java, but they have some key differences:
+
+Type of Methods: An abstract class can have both abstract and non-abstract methods. An interface, on the other hand, can only have abstract methods. 
+
+Inheritance: An abstract class doesn’t support multiple inheritance. However, an interface supports multiple inheritance.
+
+Variables: An abstract class can have final, non-final, static, and non-static variables. An interface only has static and final variables.
+
+Implementation: An abstract class can provide the implementation of an interface. An interface can’t provide the implementation of an abstract class.
+
+Access Modifiers: Members of a Java interface are public by default. An abstract class can have class members like private, protected, etc.
+
+Keyword Usage: The abstract keyword is used to declare an abstract class. The interface keyword is used to declare an interface.
+============================================================================================================================================================
+
+13.Java security?
+
+Java security includes a large set of APIs, tools, and implementations of commonly-used security algorithms, mechanisms, and protocols.
+============================================================================================================================================================
+
+14.JSON, JQuery, JPA?
+
+JSON (JavaScript Object Notation): JSON is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse 
+and generate. 
+
+jQuery: jQuery is a fast, small, and feature-rich JavaScript library. It simplifies things like HTML document traversal and manipulation, event 
+handling, animation, and Ajax with an easy-to-use API that works across a multitude of browsers. 
+
+JPA (Java Persistence API): JPA is a specification that defines how to persist data in Java applications. The primary focus of JPA is the ORM 
+(Object-Relational Mapping) layer. 
+============================================================================================================================================================
+
+15.Ajax?
+
+AJAX, which stands for Asynchronous JavaScript and XML, is a web development technique used for creating interactive web applications.The idea behind 
+AJAX is to make the web page more responsive and faster by exchanging small amounts of data with the server behind the scenes This means that it is 
+possible to update parts of a web page without reloading the whole page
+============================================================================================================================================================
+
+16.Exception Handling?
+
+Exception handling in Java is a powerful mechanism to handle runtime errors so that the normal flow of the application can be maintained. 
+Here are some key points about exception handling in Java:
+
+What is Exception in Java?: An exception in Java is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
+
+Exception Handling: Exception handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, 
+etc. The core advantage of exception handling is to maintain the normal flow of the application12.
+
+Java
+
+public class Main {
+  public static void main(String[] args) {
+    try {
+      int divideByZero = 5 / 0;
+      System.out.println("Rest of code in try block");
+    } catch (ArithmeticException e) {
+      System.out.println("ArithmeticException => " + e.getMessage());
+    } finally {
+      System.out.println("This is the finally block");
+    }
+  }
+}
+
+}
+
+In this example, the try block contains a code segment that might throw an exception. The catch block contains the exception handler for the exception 
+that might be thrown in the try block. The finally block contains the code segment that is always executed.
+============================================================================================================================================================
+
+17.Java vs JavaScript?
+
+Java and JavaScript are both popular programming languages, but they have different characteristics and uses1234:
+
+Purpose and Usage: Java is an object-oriented programming language that is used for building a variety of applications, from mobile to web to 
+enterprise-level applications. 
+JavaScript, on the other hand, is primarily used to make web pages  interactive and provide online programs, including video games.
+
+Running Environment: Java code runs on the Java Virtual Machine (JVM) and needs to be compiled before it can be run. 
+JavaScript code is run in a browser and is interpreted, not compiled.
+============================================================================================================================================================
+
+18. Program to swap two numbers?
+
+public class Main {
+  public static void main(String[] args) {
+    int num1 = 10;
+    int num2 = 20;
+    System.out.println("Before swapping: num1 = " + num1 + ", num2 = " + num2);
+
+    // Swapping
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+
+    System.out.println("After swapping: num1 = " + num1 + ", num2 = " + num2);
+  }
+}
+============================================================================================================================================================
+
+19. Program to swap two numbers without using third variable?
+
+public class Main {
+  public static void main(String[] args) {
+    int num1 = 10;
+    int num2 = 20;
+    System.out.println("Before swapping: num1 = " + num1 + ", num2 = " + num2);
+
+    // Swapping without using a third variable
+    num1 = num1 + num2;
+    num2 = num1 - num2;
+    num1 = num1 - num2;
+
+    System.out.println("After swapping: num1 = " + num1 + ", num2 = " + num2);
+  }
+}
+============================================================================================================================================================
+
+20.Print first ten prime numbers in java?
+
+public class Main {
+  public static void main(String[] args) {
+    int num = 2;
+    int count = 0;
+
+    while (count < 10) {
+      if (isPrime(num)) {
+        System.out.println(num);
+        count++;
+      }
+      num++;
+    }
+  }
+
+  public static boolean isPrime(int num) {
+    for (int i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+============================================================================================================================================================
+
+21.HashMap vs TreeMap
+
+Implementation: HashMap is a hashtable-based implementation of the Map interface, while TreeMap is a tree-based implementation.
+
+Order: HashMap does not maintain any order while iterating over keys and values. On the other hand, TreeMap sorts its keys in natural order.
+
+Null Keys/Values: HashMap allows a single null key and multiple null values. However, TreeMap does not allow null keys but can have multiple null values.
+
+Performance: HashMap is generally faster than TreeMap because it provides constant-time performance (O(1)) for basic operations like get() and put()TreeMap 
+provides the performance of O(log(n)) for most operations.
+
+Data Structure: HashMap uses a hash table, while TreeMap internally uses a Red-Black tree, which is a self-balancing Binary Search Tree
+============================================================================================================================================================
+
+22.Lambda Functions in java?
+
+Lambda expressions also known as lambda functions, were introduced in Java 8. They are a feature that facilitates functional programming and provide a 
+concise way to express instances of single-method interfaces, also known as functional interfaces.
+
+A lambda expression is essentially an anonymous function that can be treated as a method argument. They can be passed around as if they were objects and
+executed on demand.
+
+Here’s the basic syntax of a lambda expression in Java:
+
+(parameter) -> expression
+
+Here’s an example of using a lambda expression with the ArrayList’s forEach() method to print every item in the list:
+
+Java
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(5);
+        numbers.add(9);
+        numbers.add(8);
+        numbers.add(1);
+        numbers.forEach((n) -> {
+            System.out.println(n);
+        });
+    }
+}
+============================================================================================================================================================
+
+23.Wrapper Class?
+
+A Wrapper class in Java is a class that wraps or contains primitive data types. When we create an object to a wrapper class, it contains a field and in 
+this field, we can store primitive data types. In other words, we can wrap a primitive value into a wrapper class object.
+============================================================================================================================================================
+
+24.Memory Management in Java?
+
+Purpose: In Java, memory management is the process of allocation and de-allocation of objects, called Memory management. Java uses an automatic memory 
+management system called a garbage collector. 
+
+JVM Memory Structure: JVM creates various run time data areas in a heap. These areas are used during the program execution. The memory areas are destroyed 
+when JVM exits, whereas the data areas are destroyed when the thread exits.
+
+Heap Area: Heap stores the actual objects. It creates when the JVM starts up. The user can control the heap if needed. It can be of fixed or dynamic size. 
+When you use a new keyword, the JVM creates an instance for the object in a heap.
+
+Garbage Collection: The garbage collector itself ensures that the unused space gets cleaned and memory can be freed when not needed. There are some objects
+that aren’t eligible for the automatic garbage collection.
+============================================================================================================================================================
+
+25.Heap Memory vs Stack Memory
+
+Memory Management: Stack memory is managed by the compiler, while heap memory requires manual management by the programmer.
+
+Allocation: Stack memory allocation happens on contiguous blocks of memory. Heap memory uses dynamic memory allocation and deallocation.
+
+Ordering: Stack memory follows a Last-In-First-Out (LIFO) order. Heap memory does not follow any specific order.
+
+Scope: Variables in stack memory are only accessible within their own threads. Objects in heap memory are globally accessible.
+
+Lifetime: The lifetime of stack memory is until the function returns. Heap memory lives until the program is terminated or memory is freed.
+
+Usage: Stack memory is used to store the order of method execution and local variables. Heap memory is used to store objects.
+============================================================================================================================================================
+
+26. Instance variable vs local variable
+
+Declaration: Instance variables are declared within a class but outside a method, constructor, or block. 
+Local variables are declared within a method, constructor, or block.
+
+Scope: Instance variables are accessible to all methods, constructors, or blocks in the class. 
+Local variables are only accessible within the method, constructor, or block they are declared.
+
+Lifetime: Instance variables exist as long as the object of the class exists. 
+Local variables exist until the method, constructor, or block they are declared in is exited.
+
+Default Value: Instance variables are given a default value if not assigned by code.
+Local variables must be assigned a value by code.
+
+Access: Instance variables can be accessed throughout the class. 
+Local variables can only be accessed within the method in which they are declared.
+
+Initialization: It is not compulsory to initialize instance variables before use. It is important to initialize local variables before use.
+============================================================================================================================================================
+
+27. Difference between BETWEEN and IN, write query using BETWEEN and IN
+
+The key differences between BETWEEN and IN in SQL:
+
+BETWEEN Operator: The BETWEEN operator in SQL is used to select a range of data between two values. It can be used in a SELECT, INSERT, UPDATE, 
+or DELETE statement1. The SQL BETWEEN condition will return the records where the expression is within the range of value and value.
+
+IN Operator: The IN operator in SQL allows you to easily test if an expression matches any value in a list of values1. It is used to remove 
+the need for multiple OR conditions in SELECT, INSERT, UPDATE, or DELETE1. You can also use NOT IN to exclude the rows in your list.
+
+Here are some examples of using BETWEEN and IN in SQL:
+
+Using BETWEEN:
+
+SQL
+
+-- List all the Employee’s Names who is having salary between 30000 and 45000.
+SELECT Name FROM Emp WHERE Salary BETWEEN 30000 AND 45000;
+
+-- Find all the Employees an Age Between 22 to 24.
+SELECT Name FROM Emp where Age BETWEEN '22' AND '24';
+
+Using IN:
+
+SQL
+
+-- Find the Fname, and Lname of the Employees who have a Salary equal to 30000, 40000, or 25000.
+SELECT Name FROM Emp WHERE Salary IN (30000, 40000, 25000);
+
+-- Find the Fname and Lname of all the Employees who has a Salary not equal to 25000 or 30000.
+SELECT Name FROM Emp WHERE Salary NOT IN (25000, 30000);
+============================================================================================================================================================
+
+28.CSS box model,margin vs padding
+
+CSS Box Model: The CSS box model is a fundamental concept in CSS, representing all HTML elements as rectangular boxes. It consists of four 
+parts:
+Content: The actual content of the box, where text and images appear.
+Padding: Clears an area around the content. The padding is transparent.
+Border: A border that goes around the padding and content1.
+Margin: Clears an area outside the border. The margin is transparent.
+
+Margin vs Padding:
+
+Margin: It is the space around an element. Margins are used to move an element up or down on a page as well as left or right. Margin is 
+completely transparent, and it does not have any background color4. It clears the area around the element.
+
+Padding: It is the space between the element and the related content inside it. It determines how elements look and sit within a container. 
+It also shows the container background around the element in it. Padding can be affected by background colors as it clears the area around the 
+content
+============================================================================================================================================================
+
+29.Comparable vs Comparator
+
+The key differences between Comparable and Comparator in Java:
+
+Comparable Interface: A comparable object is capable of comparing itself with another object. The class itself must implement the 
+java.lang.Comparable interface to compare its instances.
+
+Comparator Interface: A comparator object is capable of comparing two different objects. The class is not comparing its instances, 
+but some other class’s instances1Comparator provides multiple sorting sequences. 
+============================================================================================================================================================
+
+30.Difference between union and union all
+
+Here are the key differences between UNION and UNION ALL in SQL:
+
+UNION: The UNION operator in SQL is used to combine the results of two or more SELECT statements into a single result set. It removes 
+duplicates from the combined result set, presenting unique records. The conditions for a UNION statement are that the columns in the SELECT 
+statement need to be in the same order, and the data types should be compatible.
+
+UNION ALL: The UNION ALL operator in SQL is also used to combine the results of two or more SELECT statements into a single result set. The 
+difference between UNION and UNION ALL is that UNION ALL includes all rows, including duplicates.UNION ALL is faster than UNION because it 
+does not have the additional step of eliminating duplicates.
+
+
+===================================================================**Vanshika**=========================================================================================
+
+1. What is hashmap, treemap ?
+ans: A HashMap in Java is a data structure that stores data in key-value pairs. It allows you to access values by their corresponding keys, 
+providing fast lookups. The keys in a HashMap are unique, meaning you cannot have duplicate keys.
+HashMap<String, String> map = new HashMap<>();
+map.put("key1", "value1");
+map.put("key2", "value2");
+System.out.println(map.get("key1")); // prints "value1"
+
+a TreeMap in Java is also a data structure that stores data in key-value pairs, but it keeps the keys in a sorted order. The keys in a TreeMap 
+are sorted according to their natural ordering, or by a Comparator provided at the time of creation.
+TreeMap<String, String> map = new TreeMap<>();
+map.put("key1", "value1");
+map.put("key2", "value2");
+System.out.println(map.firstKey()); // prints "key1"
+============================================================================================================================================================
+2. Write a java program to remove duplicates?
+ans: import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 2, 3, 4, 4, 5, 6, 6, 7};
+
+        // Convert the array to a List
+        List<Integer> list = new ArrayList<>();
+        for (int i : arr) {
+            list.add(i);
+        }
+
+        // Use a HashSet to remove duplicates
+        Set<Integer> set = new HashSet<>(list);
+        list.clear();
+        list.addAll(set);
+
+        // Convert the List back to an array
+        arr = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+
+        // Print the array
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+}
+
+============================================================================================================================================================
+3. SQL table creation and inserting values ??
+ans: sql table create 
+CREATE TABLE Persons (
+  PersonID int,
+  LastName varchar(255),
+  FirstName varchar(255),
+  Address varchar(255),
+  City varchar(255)
+);
+
+insert 
+INSERT INTO Persons (LastName, FirstName, Address, City)
+VALUES ('Doe', 'John', '123 Main St', 'Anytown');
+============================================================================================================================================================
+
+4. what is overloading  vs overriding ?
+ans: overloading: Method overloading is when you define multiple methods with the same name but different parameter lists. This allows you to define multiple methods that perform similar functionality but with different input or output.
+public class Calculator {
+  public int add(int a, int b) {
+    return a + b;
+  }
+
+  public double add(double a, double b) {
+    return a + b;
+  }
+}
+
+overriding: Method overriding is when you define a method in a subclass that has the same name, return type, and parameter list as a method in its superclass. This allows you to provide a different implementation of the method that can be used instead of the one in the superclass.
+public class Animal {
+  public void speak() {
+    System.out.println("Some generic animal sound");
+  }
+}
+
+public class Dog extends Animal {
+  @Override
+  public void speak() {
+    System.out.println("Woof!");
+  }
+}
+============================================================================================================================================================
+
+5. what is collection??
+ans: In Java, a Collection is an interface that represents a group of objects known as elements. It is a part of the Java Collections Framework and is implemented by various classes such as List, Set, and Queue.
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Main {
+    public static void main(String[] args) {
+        Collection<String> collection = new ArrayList<>();
+        collection.add("apple");
+        collection.add("banana");
+        collection.add("cherry");
+
+        // Iterate over the collection
+        for (String fruit : collection) {
+            System.out.println(fruit);
+        }
+    }
+}
+
+============================================================================================================================================================
+6. What is an interface ?
+ans : an interface is a reference type that defines a set of abstract methods that a class can implement. It is a blueprint for a class and specifies what
+ a class can do, but not how it should be done.
+public interface Shape {
+  double PI = 3.14;
+
+  double calculateArea();
+  double calculatePerimeter();
+}
+============================================================================================================================================================
+7. What is user interface??
+ans: In Java, a user interface (UI) is a way for users to interact with a Java application. Java provides several libraries and frameworks for creating user interfaces, such as:
+a. AWT (Abstract Windowing Toolkit)
+b. Swing
+c. JavaFX 
+
+============================================================================================================================================================
+8. what is linkedlist??
+ans: A LinkedList in Java is a part of the Java Collections Framework and provides a linked list implementation of the List interface. It allows for the storage and retrieval of elements in a doubly-linked list data structure, where each element is linked to its predecessor and successor elements.
+
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<String> cars = new LinkedList<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+        System.out.println(cars);
+    }
+}
+
+============================================================================================================================================================
+
+9. Array vs ArrayList ??
+ans : Arrays are a built-in data structure in Java that have a fixed size, meaning that once an array is created, its size cannot be changed. Arrays are declared with a specific data type and size, and elements are accessed using an index. Here's an example:
+
+int[] numbers = new int[5];
+numbers[0] = 1;
+numbers[1] = 2;
+numbers[2] = 3;
+numbers[3] = 4;
+numbers[4] = 5;
+
+ArrayLists are a part of the Java Collections Framework and are implemented as a resizable array. This means that an ArrayList can grow or shrink dynamically as elements are added or removed. ArrayLists are declared with a specific data type, but their size can change at runtime. Here's an example:
+
+ArrayList<Integer> numbers = new ArrayList<Integer>();
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+numbers.add(4);
+numbers.add(5);
+
+============================================================================================================================================================
+
+10. what is polymorphism?? elaborate with code ?
+ans Polymorphism is a fundamental concept in object-oriented programming that allows objects of different classes to be treated as if they were of the same class. This means that a single variable or method can refer to objects of different types, and the correct behavior will be determined at runtime.
+
+In Java, polymorphism is achieved through the use of interfaces, abstract classes, and method overriding. Here's an example that demonstrates method overriding:
+
+public class Animal {
+    public void makeSound() {
+        System.out.println("Some generic animal sound");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+public class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Dog();
+        Animal animal2 = new Cat();
+
+        animal1.makeSound(); // Output: Woof!
+        animal2.makeSound(); // Output: Meow!
+    }
+}
+
+============================================================================================================================================================
+
+11. What is exception handling ?? elaborate with code ??
+ans : Exception handling is a mechanism in Java that allows you to handle unexpected events that occur during the execution of your program. These events are called exceptions, and they can occur due to various reasons, such as a null pointer reference, a file not found, or a network error.
+
+When an exception occurs, it propagates up the call stack until it is handled by a catch block or until it reaches the top-level thread. If it is not handled, the program will terminate with an error message.
+
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int[] arr = {1, 2, 3};
+            System.out.println(arr[4]); // This will throw an ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("An ArrayIndexOutOfBoundsException occurred: " + e.getMessage());
+        }
+        System.out.println("Program continues...");
+    }
+}
+============================================================================================================================================================
+12. Diff between unique key and primary key ??
+ans: A primary key is a column or set of columns in a table that uniquely identifies each row. It cannot contain null values and must be unique. Each 
+table can have only one primary key.
+
+A unique key is similar to a primary key, but it can contain at most one null value. It also ensures that the values in the column are unique, but it 
+doesn't have to be defined for every table.
+
+Here are some key differences between primary key and unique key:
+
+1. A table can have only one primary key, whereas it can have multiple unique keys.
+
+2. A primary key is used to establish relationships between tables, whereas a unique key is used to ensure the uniqueness of a column's values.
+
+3.A primary key cannot contain null values, whereas a unique key can contain at most one null value.
+============================================================================================================================================================
+13. what is an abstract class ??
+ans: In Java, an abstract class is a class that cannot be instantiated directly and is intended to be a base class for other classes. It can contain both 
+abstract and concrete methods, as well as fields and constructors.
+
+An abstract method is a method that has a declaration but no implementation. It is up to the subclasses to provide an implementation for these methods. 
+Abstract methods are defined using the abstract keyword.
+
+public abstract class Animal {
+  protected String name;
+
+  public Animal(String name) {
+    this.name = name;
+  }
+
+  public abstract void makeSound();
+
+  public void eat() {
+    System.out.println("The animal is eating.");
+  }
+}
+
+============================================================================================================================================================
+14. what is bootstrap ??
+ans: Bootstrap is a popular open-source front-end development framework used for building responsive and mobile-first websites. It was developed by Twitter and is now maintained by the Bootstrap Core Team.
+
+Bootstrap provides a set of CSS and JavaScript files that can be used to quickly and easily create layouts, forms, buttons, navigation menus, and other UI components. It is based on a 12-column grid system that allows for flexible and adaptive layouts that work on a variety of devices and screen sizes.
+============================================================================================================================================================
+15. what log4j ??
+ans: Log4j is a popular open-source logging framework for Java applications. It provides a flexible and customizable way to log messages, errors, and other events from Java code.
+
+Log4j allows developers to specify logging levels, such as DEBUG, INFO, WARN, ERROR, and FATAL, to control the amount and type of information that is logged. It also supports various logging appenders, such as ConsoleAppender, FileAppender, RollingFileAppender, and SMTPAppender, to output the logs to different destinations.
+
+16. types of css styles ??
+ans: In CSS, there are three main types of styles:
+
+Inline styles: Inline styles are applied directly to an HTML element using the 'style' attribute. They have the highest specificity and override any other styles applied to the element. Here's an example:
+
+<p style="color: red;">This is a red paragraph.</p>
+
+Internal styles: Internal styles are defined within the <style> tag in the <head> section of an HTML document. They apply to all elements within the document and have a lower specificity than inline styles. Here's an example:
+
+<head>
+  <style>
+    p {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <p>This is a blue paragraph.</p>
+</body>
+
+External styles: External styles are defined in a separate CSS file and are linked to an HTML document using the <link> tag in the <head> section. They have the lowest specificity and can be overridden by inline and internal styles. Here's an example:
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <p>This is a paragraph with styles defined in an external CSS file.</p>
+</body>
+============================================================================================================================================================
+17. what is constraint in java??
+ans:In Java, constraints are used to enforce rules on variables or methods. One common way to use constraints is through the use of annotations in the Bean Validation API, which is a part of Java EE. Here's an example of using constraints with annotations:
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+public class Person {
+    @NotNull
+    private String name;
+
+    @Min(18)
+    @Max(100)
+    private int age;
+
+    // getters and setters
+}
+============================================================================================================================================================
+18. What is multi threading ??
+ans: Multithreading is a programming concept that allows multiple threads of execution to run concurrently within a single program. A thread is a 
+lightweight process that can execute code independently of other threads. By allowing multiple threads to run concurrently, multithreading can improve
+ the performance and responsiveness of a program.
+
+In Java, multithreading is implemented using the Thread class or the Runnable interface. Here's an example of creating a new thread using the Thread class:
+
+class MyThread extends Thread {
+    public void run() {
+        // code to be executed in the new thread
+    }
+}
+
+MyThread thread = new MyThread();
+thread.start(); // starts the new thread
+
+19. what is about strings ??
+ans: In Java, a string is a sequence of characters that can be used to represent text. Strings are a fundamental part of the Java programming language and are used extensively in most Java programs.
+Strings in Java are implemented as objects of the String class, which is part of the Java standard library. The String class provides a variety of methods for manipulating and working with strings, such as:
+
+length(): Returns the length of the string.
+
+charAt(int index): Returns the character at the specified index.
+
+substring(int beginIndex, int endIndex): Returns a new string that contains a substring of the original string, starting at the specified index and ending before the specified end index.
+
+indexOf(String substring): Returns the index of the first occurrence of the specified substring, or -1 if the substring is not found.
+
+equals(Object obj): Compares the string to the specified object and returns true if they are equal, and false otherwise.
+
+Strings in Java are immutable, which means that once a string is created, it cannot be modified. Instead, when you modify a string, a new string object is created with the modified value. This can have performance implications, as creating new string objects can be expensive.
+============================================================================================================================================================
+20. what is array sorting ??
+ans: Here's an example of sorting an array of integers in ascending order:
+
+import java.util.Arrays;
+
+public class IntegerSortExample {
+    public static void main(String[] args) {
+        int[] numbers = {8, 2, 7, 3, 1, 5};
+
+        Arrays.sort(numbers);
+
+        System.out.println("Sorted Numbers:");
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+    }
+}
+============================================================================================================================================================
+21. what is delete vs truncate ??
+ans: In SQL, DELETE and TRUNCATE are both used to remove data from a table, but they work in slightly different ways.
+
+The DELETE statement is used to delete one or more rows from a table based on a specified condition. Here's an example:
+
+DELETE FROM employees WHERE department = 'Sales';
+
+The TRUNCATE statement, on the other hand, is used to remove all rows from a table quickly and efficiently. Here's an example:
+
+TRUNCATE TABLE employees;
+
+The main differences between DELETE and TRUNCATE are:
+
+DELETE allows you to specify a condition to delete specific rows, while TRUNCATE removes all rows without a condition.
+
+DELETE is slower than TRUNCATE for large tables because it generates a transaction for each deleted row, while TRUNCATE removes all rows in a single transaction.
+
+DELETE preserves the table structure, including indexes, triggers, and constraints, while TRUNCATE removes all data and resets the auto-increment value for the table.
+
+DELETE can be rolled back in a transaction, while TRUNCATE cannot be rolled back.
+============================================================================================================================================================
+22. finally block in exception handling ??
+ans: In Java, the finally block is used to ensure that a block of code is executed, whether an exception is thrown or not. It is typically used for cleanup operations, such as closing resources. Here's an example:
+
+public void openFile() {
+    FileReader reader = null;
+    try {
+        // constructor may throw FileNotFoundException
+        reader = new FileReader("someFile");
+        int i=0;
+        while(i != -1){
+            //reader.read() may throw IOException
+            i = reader.read();
+            System.out.println((char) i );
+        }
+    } catch (FileNotFoundException e) {
+        //do something clever with the exception
+    } catch (IOException e) {
+        //do something clever with the exception
+    } finally {
+        if (reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                //do something clever with the exception
+            }
+        }
+        System.out.println("--- File End ---");
+    }
+}
+
+In this example, the finally block is used to close the FileReader resource, regardless of whether an exception is thrown or not. The try block contains the code that may throw an exception, and the catch blocks are used to handle any exceptions that are thrown.
+============================================================================================================================================================
+23. Implement array list using iterator ??
+ans: import java.util.Iterator;
+import java.util.ConcurrentModificationException;
+
+public class MyArrayList<T> implements Iterable<T> {
+    private static final int DEFAULT_CAPACITY = 10;
+    private T[] elements;
+    private int size;
+    private int modCount;
+
+    public MyArrayList() {
+        elements = (T[]) new Object[DEFAULT_CAPACITY];
+        size = 0;
+        modCount = 0;
+    }
+
+    public void add(T element) {
+        if (size == elements.length) {
+            ensureCapacity(size + 1);
+        }
+        elements[size] = element;
+        size++;
+        modCount++;
+    }
+
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
+        }
+        return elements[index];
+    }
+
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new MyArrayListIterator();
+    }
+
+    private class MyArrayListIterator implements Iterator<T> {
+        private int currentIndex;
+        private int expectedModCount;
+
+        public MyArrayListIterator() {
+            currentIndex = 0;
+            expectedModCount = modCount;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size;
+        }
+
+        @Override
+        public T next() {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+            if (currentIndex >= size) {
+                throw new IndexOutOfBoundsException("Index " + currentIndex + " is out of bounds.");
+            }
+            return elements[currentIndex++];
+        }
+    }
+
+    private void ensureCapacity(int capacity) {
+        int newCapacity = elements.length * 2;
+        if (newCapacity < capacity) {
+            newCapacity = capacity;
+        }
+        T[] newElements = (T[]) new Object[newCapacity];
+        System.arraycopy(elements, 0, newElements, 0, size);
+        elements = newElements;
+    }
+}
+
+============================================================================================================================================================
+
+24. implementation of sorting the list ??
+ans: import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student {
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 22));
+        students.add(new Student("Bob", 20));
+        students.add(new Student("Charlie", 23));
+
+        System.out.println("Original list:");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+
+        Collections.sort(students, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return Integer.compare(s1.getAge(), s2.getAge());
+            }
+        });
+
+        System.out.println("\nList sorted by age:");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+
+        Collections.sort(students, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return s1.getName().compareTo(s2.getName());
+            }
+        });
+
+        System.out.println("\nList sorted by name:");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+}
+============================================================================================================================================================
+25. what is access modifier ??
+ans: In Java, access modifiers are keywords that determine the accessibility or visibility of classes, interfaces, methods, and fields. There are four access modifiers in Java:
+
+public: The most accessible modifier, indicating that the class, interface, method, or field can be accessed from any package.
+
+protected: Indicating that the class, interface, method, or field can be accessed within the same package and subclasses in different packages.
+
+default (no modifier): Indicating that the class, interface, method, or field can be accessed within the same package only.
+
+private: The least accessible modifier, indicating that the method or field can be accessed only within the same class.
+
+public class MyClass {
+    // public field
+    public int publicField;
+
+    // default (no modifier) field
+    int defaultField;
+
+    // private field
+    private int privateField;
+
+    // public method
+    public void publicMethod() {
+        System.out.println("Public method");
+    }
+
+    // default (no modifier) method
+    void defaultMethod() {
+        System.out.println("Default method");
+    }
+
+    // private method
+    private void privateMethod() {
+        System.out.println("Private method");
+    }
+}
+
+class SubClass extends MyClass {
+    // can access public and default fields and methods
+    public void testAccess() {
+        publicField = 10;
+        defaultField = 20;
+        publicMethod();
+        defaultMethod();
+    }
+
+    // cannot access private fields and methods
+    // privateField = 30; // compile error
+    // privateMethod(); // compile error
+}
+============================================================================================================================================================
+26. what is spring framework ??
+ans: The Spring Framework is an open-source application framework for the Java platform. It provides a comprehensive programming and configuration model for building enterprise-grade applications. The Spring Framework is designed to be lightweight, modular, and extensible, making it a popular choice for building Java applications.
+
+============================================================================================================================================================
+
+27. collections (set, hashset, hashmap, treeset, list, linkedlist)
+ans: Set: A collection that cannot contain duplicate elements. Here's an example of using the HashSet implementation:
+
+Set<String> set = new HashSet<>();
+set.add("Apple");
+set.add("Banana");
+set.add("Apple"); // This will not be added since sets cannot contain duplicates
+System.out.println(set); // Output: [Apple, Banana]
+
+HashSet: This is a Set implementation that uses a hash table for storage. It's generally faster than other Set implementations, but it doesn't maintain the insertion order.
+
+HashMap: A Map implementation that stores key-value pairs. The keys are unique, and you can retrieve values using their corresponding keys. Here's an example:
+HashMap<String, Integer> map = new HashMap<>();
+map.put("Apple", 10);
+map.put("Banana", 20);
+System.out.println(map.get("Apple")); // Output: 10
+
+TreeSet: A Set implementation that stores elements in a sorted order. Here's an example:
+TreeSet<String> treeSet = new TreeSet<>();
+treeSet.add("Apple");
+treeSet.add("Banana");
+System.out.println(treeSet); // Output: [Apple, Banana]
+
+List: An ordered collection that can contain duplicate elements. Here's an example using the ArrayList implementation:
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+list.add("Apple");
+System.out.println(list); // Output: [Apple, Banana, Apple]
+
+LinkedList: A List implementation that uses a linked list data structure. It's particularly efficient for adding and removing elements from the beginning or end of the list. Here's an example:
+
+LinkedList<String> linkedList = new LinkedList<>();
+linkedList.add("Apple");
+linkedList.add("Banana");
+linkedList.addFirst("Cherry");
+System.out.println(linkedList); // Output: [Cherry, Apple, Banana]
+============================================================================================================================================================
+
+28. what is agile, waterfall ??
+ans: Agile and Waterfall are two popular methods for organizing projects. Waterfall is a more traditional approach to project management, involving a linear
+ flow. Agile, on the other hand, embraces an iterative process. It involves rapid actions and great flexibility.
+============================================================================================================================================================
+
+29. what is deadlock ??
+ans: A deadlock is a situation in which two or more processes are blocked, waiting for each other to release resources, resulting in a state where neither 
+process can proceed. In other words, a deadlock occurs when two or more threads are unable to continue executing because each is waiting for the other to 
+release a resource.
+
+class SharedResource {
+    synchronized void test1(SharedResource sr) {
+        System.out.println("test1-begin");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted!");
+        }
+        sr.test2(this);
+        System.out.println("test1-end");
+    }
+
+    synchronized void test2(SharedResource sr) {
+        System.out.println("test2-begin");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted!");
+        }
+        sr.test1(this);
+        System.out.println("test2-end");
+    }
+}
+
+class Thread1 extends Thread {
+    private SharedResource sr1, sr2;
+
+    Thread1(SharedResource sr1, SharedResource sr2) {
+        this.sr1 = sr1;
+        this.sr2 = sr2;
+    }
+
+    public void run() {
+        sr1.test1(sr2);
+    }
+}
+
+class Thread2 extends Thread {
+    private SharedResource sr1, sr2;
+
+    Thread2(SharedResource sr1, SharedResource sr2) {
+        this.sr1 = sr1;
+        this.sr2 = sr2;
+    }
+
+    public void run() {
+        sr2.test2(sr1);
+    }
+}
+
+public class DeadlockDemo {
+    public static void main(String[] args) {
+        SharedResource sr1 = new SharedResource();
+        SharedResource sr2 = new SharedResource();
+
+        Thread1 t1 = new Thread1(sr1, sr2);
+        Thread2 t2 = new Thread2(sr1, sr2);
+
+        t1.start();
+        t2.start();
+    }
+}
+============================================================================================================================================================
+30. what is synchronisation ??
+ans: Synchronization is a mechanism in multi-threaded programming that ensures that only one thread can access a shared resource at a time. It's used to 
+prevent race conditions, where multiple threads access and modify a shared resource simultaneously, leading to inconsistent or unpredictable behavior.
+In Java, synchronization is achieved using the synchronized keyword. A method or a block of code can be marked as synchronized, which means that only one 
+thread can execute it at a time. When a thread enters a synchronized block, it acquires a lock on the object associated with the block. Other threads 
+attempting to enter the same synchronized block must wait until the lock is released.
+
+public class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public synchronized int getCount() {
+        return count;
+    }
+}
+============================================================================================================================================================
+31. what is exception handling ??
+ans: Exception handling is a mechanism in programming that allows developers to handle and respond to unexpected events or errors that occur during the execution of a program. In Java, exception handling is achieved using the try, catch, finally, and throw keywords.
+
+try {
+    // code that might throw an exception
+    int x = 10;
+    int y = 0;
+    int z = x / y;
+} catch (ArithmeticException e) {
+    // code that handles the exception
+    System.out.println("An ArithmeticException occurred: " + e.getMessage());
+} finally {
+    // code that is always executed, whether an exception occurred or not
+    System.out.println("This code is always executed.");
+}
+
+============================================================================================================================================================
+32. what is iterator ??
+ans: In Java, an iterator is an object that allows you to traverse through a collection of elements and access them one at a time. The Iterator interface 
+is part of the Java Collections Framework and provides a standard way to iterate over different types of collections.
+
+import java.util.LinkedList;
+import java.util.Iterator;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        LinkedList<String> list = new LinkedList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            System.out.println(element);
+        }
+    }
+}
+
+============================================================================================================================================================
+33. what is log4j api ??
+ans: Log4j is a popular logging API for Java that provides fine-grained control over logging output. Here's an example of how to use the Log4j API to log messages:
+
+First, you need to add the Log4j dependency to your project. If you're using Maven, you can add the following dependency to your pom.xml file:
+<dependency>
+  <groupId>org.apache.logging.log4j</groupId>
+  <artifactId>log4j-api</artifactId>
+  <version>2.17.0</version>
+</dependency>
+============================================================================================================================================================
+34. what is lambda expressions??
+ans: Lambda expressions are a feature of Java that allow you to create anonymous functions that can be passed as arguments to methods or assigned to variables. They were introduced in Java 8 as part of the effort to support functional programming concepts in the language.
+============================================================================================================================================================
+
+35. primary key and foreign key ??
+ans: In relational databases, a primary key is a column or set of columns that uniquely identifies a row in a table. A primary key must have a unique value for each row, and cannot be null.
+
+Here's an example of a table with a primary key:
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  department VARCHAR(50)
+);
+
+A foreign key is a column or set of columns that refers to the primary key of another table. A foreign key establishes a link between two tables and ensures referential integrity, which means that the data in the two tables is consistent.
+
+Here's an example of a table with a foreign key:
+CREATE TABLE departments (
+  id INT PRIMARY KEY,
+  name VARCHAR(50)
+);
+
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  department_id INT,
+  FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+
+============================================================================================================================================================
+
+36. diff bet unique and distinct key ??
+ans: UNIQUE is a constraint that can be applied to a column or set of columns in a table. It ensures that the values in the specified column(s) are unique for each row in the table. In other words, no two rows can have the same value(s) in the UNIQUE column(s).
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  email VARCHAR(50) UNIQUE,
+  name VARCHAR(50)
+);
+
+
+DISTINCT, on the other hand, is a keyword that is used in the SELECT statement to eliminate duplicate values from a result set. It ensures that each row in the result set is unique, based on the specified column(s).
+
+Here's an example of a SELECT statement with the DISTINCT keyword:
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  email VARCHAR(50) UNIQUE,
+  name VARCHAR(50)
+);
+
+============================================================================================================================================================
+
+37. write a sql query using where, having, order by 
+ans: SELECT 
+  category_id, 
+  COUNT(product_id) AS product_count
+FROM 
+  products
+WHERE 
+  price > 100
+GROUP BY 
+  category_id
+HAVING 
+  COUNT(product_id) > 5
+ORDER BY 
+  product_count DESC;
+============================================================================================================================================================
+
+38. what is unit testing ??
+ans: Unit testing is a software testing methodology that involves testing individual units or components of a software application in isolation from the rest of the system. The goal of unit testing is to validate that each unit of the software functions correctly and meets its design and requirements.
+
+Unit tests are typically written by developers as part of the development process, and are executed automatically as part of a continuous integration or continuous delivery pipeline. Unit tests are designed to be small, focused, and repeatable, and should be written to test a single unit of functionality.
+============================================================================================================================================================
+39. what is junit ?
+ans: JUnit is a popular open-source testing framework for Java that is used for writing and running unit tests. It provides a simple and intuitive API for writing tests, as well as tools for organizing, executing, and reporting on test results.
+
+
+JUnit is part of the xUnit family of testing frameworks, which also includes NUnit for .NET, PyTest for Python, and Mocha for JavaScript. JUnit is widely used in the Java community and is often integrated into development environments, build tools, and continuous integration servers.
+============================================================================================================================================================
+40. what is preparedstatement and statement ??
+ans: A Statement object is used to execute a single SQL statement, such as a SELECT, INSERT, UPDATE, or DELETE statement. The Statement interface provides
+ methods for executing SQL statements, such as executeQuery, executeUpdate, and execute.
+
+A PreparedStatement object is used to execute a precompiled SQL statement that can be reused multiple times with different parameter values. The 
+PreparedStatement interface provides methods for setting input parameters, such as setInt, setString, and setDate.
+String query = "SELECT * FROM employees WHERE salary > 50000";
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery(query);
+
+String query = "SELECT * FROM employees WHERE salary > ?";
+PreparedStatement preparedStatement = connection.prepareStatement(query);
+preparedStatement.setInt(1, 50000);
+ResultSet resultSet = preparedStatement.executeQuery();
+
+============================================================================================================================================================
+41. Is multiple inheritance is achieved in java?
+ans: No, multiple inheritance is not directly supported in Java. In Java, a class can only inherit from one superclass, which is known as single inheritance. However, Java provides other mechanisms to achieve similar functionality, such as interfaces and composition.
+
+Interfaces in Java are similar to abstract classes, but they can only contain abstract methods and constants. A class can implement multiple interfaces, which allows it to inherit the behavior and structure of multiple interfaces.
+
+public interface Printable {
+  void print();
+}
+
+public interface Drawable {
+  void draw();
+}
+
+public class Shape implements Printable, Drawable {
+  public void print() {
+    System.out.println("Printing shape...");
+  }
+
+  public void draw() {
+    System.out.println("Drawing shape...");
+  }
+}
+============================================================================**MAYURI**================================================================================
+
+
+
+
+1.	What are jdbc steps ??
+Java Database Connectivity (JDBC) is an API for the Java programming language that defines how a client may access a database. The steps to connect to a database using JDBC are:
+Import the JDBC package: import java.sql.*;
+Register the JDBC driver: Class.forName("com.mysql.jdbc.Driver");
+Open a connection: Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databaseName","username","password");
+Create a statement: Statement stmt = conn.createStatement();
+Execute a query: ResultSet rs = stmt.executeQuery("select * from tableName");
+Process the result set: while(rs.next()){...}
+Close the connection: conn.close();
+============================================================================================================================================================
+
+
+2.	What is prepared statement ??
+Prepared statement: A Prepared Statement is a precompiled SQL statement. It is used to execute the same SQL statement repeatedly. Prepared Statements can 
+be used to prevent SQL Injection attacks.
+============================================================================================================================================================
+
+3.	What is static and non-static methods ??
+Static and non static methods: Static methods are methods that belong to the class rather than an object of the class. They can be called without creating an object of the class. Non-static methods are methods that belong to an object of the class. They can only be called by creating an object of the class.
+============================================================================================================================================================
+
+4.	What is thread and threadsafe 
+A thread is a lightweight process that runs concurrently with other threads. Thread safety is a property of an object or code that guarantees that if that object or code is used by multiple threads, it will behave correctly.
+============================================================================================================================================================
+
+5.	What are Jdk, jvm and jre:
+•	JDK: Java Development Kit (JDK) is a software development environment used for developing Java applications and applets. It includes the Java Runtime Environment (JRE), an interpreter/loader (Java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), and other tools needed in Java development.
+•	JVM: Java Virtual Machine (JVM) is a software implementation that executes Java bytecode. It is a crucial component of the Java platform.
+•	JRE: Java Runtime Environment (JRE) is a software package that provides the runtime environment for executing Java applications. It includes the Java Virtual Machine (JVM), Java class libraries, and other components to run Java applications.
+============================================================================================================================================================
+
+6.	What is design pattern ??
+Design patterns are reusable solutions to common programming problems. They are categorized into three groups: Creational, Structural, and Behavioral patterns.
+============================================================================================================================================================
+
+7.	What design pattern is used in project ??
+the following design patterns are used:
+1.	Creational Patterns: These patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or add complexity to the design. Creational design patterns solve this problem by controlling this object creation. Examples of creational patterns used in the project are:
+•	Singleton Pattern: This pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine. It is used when a single object is required to coordinate actions across the system.
+•	Factory Pattern: This pattern provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created. It is used when a class wants that its subclass decides which object to create.
+2.	Structural Patterns: These patterns deal with object composition. They use inheritance to compose interfaces and define ways to compose objects to obtain new functionality. Examples of structural patterns used in the project are:
+•	Adapter Pattern: This pattern works as a bridge between two incompatible interfaces. This pattern involves a single class which is responsible to join functionalities of independent or incompatible interfaces.
+•	Decorator Pattern: This pattern allows a user to add new functionality to an existing object without altering its structure. This type of design pattern comes under structural pattern as this pattern acts as a wrapper to existing class.
+3.	Behavioral Patterns: These patterns are specifically concerned with communication between objects. Examples of behavioral patterns used in the project are:
+•	Observer Pattern: This pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. It is used when a change to one object requires changing others, and you don't know how many objects need to be changed.
+•	Strategy Pattern: This pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. It lets the algorithm vary independently from clients that use it.
+============================================================================================================================================================
+
+8.	What is JDBC connection code ??
+The project also uses the following concepts:
+What are JDBC Connection Code 
+•	 JDBC (Java Database Connectivity) is an API for the Java programming language that defines how a client may access a database. The steps to connect to a database using JDBC are:
+1.	Import the JDBC package: import java.sql.*;
+2.	Register the JDBC driver: Class.forName("com.mysql.jdbc.Driver");
+3.	Open a connection: Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databaseName","username","password");
+4.	Create a statement: Statement stmt = conn.createStatement();
+5.	Execute a query: ResultSet rs = stmt.executeQuery("select * from tableName");
+6.	Process the result set: while(rs.next()){...}
+7.	Close the connection: conn.close();
+============================================================================================================================================================
+
+9.	 What are Static and non-staticmethods
+ Static methods are methods that belong to the class rather than an object of the class. They can be called without creating an object of the class. Non-static methods are methods that belong to an object of the class. They can only be called by creating an object of the class.
+============================================================================================================================================================
+
+10.	What is ddl, dml  ?
+
+DDL: Data Definition Language (DDL) is a subset of SQL statements that is used to define and manage database structures such as tables, schemas, and views. Examples of DDL statements are CREATE, ALTER, DROP, TRUNCATE, etc.
+DML: Data Manipulation Language (DML) is a subset of SQL statements that is used to retrieve, insert, delete, and modify data in the database. Examples of DML statements are SELECT, INSERT, UPDATE, DELETE, etc.
+============================================================================================================================================================
+
+11.	How to iterate a list? 
+There are several ways to iterate a list in Java:
+•	Using a for-each loop: for (String str : list) {...}
+•	Using an Iterator: Iterator<String> it = list.iterator(); while (it.hasNext()) { String str = it.next(); ... }
+•	Using a for loop: for (int i = 0; i < list.size(); i++) { String str = list.get(i); ... }
+============================================================================================================================================================
+
+12.	What are threads ?
+Threads: Threads are lightweight processes that can run concurrently within a single program. Java supports multi-threading, which allows multiple threads to execute simultaneously.
+============================================================================================================================================================
+
+13.	Why you used JDBC in your project ?
+ JDBC (Java Database Connectivity) is an API that provides a standard interface for Java programs to interact with databases. It is used to establish a connection to a database, execute SQL queries, and retrieve results. I used JDBC in my project to interact with a MySQL database and perform CRUD (Create, Read, Update, Delete) operations.
+============================================================================================================================================================
+
+14.	What are Connection between two tables ?
+ A connection between two tables is established using a foreign key constraint. A foreign key is a column or set of columns in a table that refers to the primary key of another table.
+============================================================================================================================================================
+
+15.	Why you used StringBuffer and StringBuilder
+ I used StringBuffer and StringBuilder in my project to concatenate strings in a loop, as the String class is immutable and creating a new string object in each iteration can be expensive.
+============================================================================================================================================================
+
+16.	Could you implement user-defined objects as a list ??
+ Yes, user-defined objects can be implemented as a List using the List interface and its implementations, such as ArrayList or LinkedList.
+============================================================================================================================================================
+
+17.	What is the Collection API ?
+ The Collection API is a set of interfaces and classes in Java that provide a common interface for working with collections of objects.
+============================================================================================================================================================
+
+18.	What is Index and its types in SQL ?
+ In SQL, indexes are used to improve the performance of queries by providing a quick way to locate data. The types of indexes in SQL are B-tree, hash, and bitmap indexes.
+============================================================================================================================================================
+
+19.	Java question on stream (how to find second largest using stream) ??
+
+ In Java, streams are sequences of elements that can be processed in parallel or sequentially. To find the second largest element in a list using streams, you can use the following code:
+java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+int secondLargest = numbers.stream()
+                           .sorted(Comparator.reverseOrder())
+                           .limit(2)
+                           .skip(1)
+                    .findFirst()
+                          .get();
+============================================================================================================================================================
+
+20.	What is Exception and hierarchy of exception
+ Exceptions are events that occur during the execution of a program that disrupt the normal flow of instructions. The hierarchy of exceptions in Java consists of the Throwable class, which has two subclasses: Error and Exception. The Exception class has two subclasses: RuntimeException and IOException.
+============================================================================================================================================================
+
+21.	What is Spring and Spring Boot:
+Spring is a framework for building enterprise Java applications, while Spring Boot is a tool that simplifies the configuration and deployment of Spring applications.
+============================================================================================================================================================
+
+22.	What is Scenario-based coding
+Scenario-based coding is a technique for solving programming problems by breaking them down into smaller, manageable scenarios.
+============================================================================================================================================================
+
+23.	What is Serialization and deserialization
+Serialization is the process of converting an object into a byte stream, while deserialization is the process of converting a byte stream back into an object.
+============================================================================================================================================================
+
+24.	What is Auto boxing and unboxing
+Auto boxing is the process of converting a primitive type to its corresponding object type, while unboxing is the process of converting an object type to its corresponding primitive type.
+============================================================================================================================================================
+
+25.	What is the meaning of robust in Java
+ Robustness in Java refers to the ability of a program to handle unexpected inputs or errors gracefully, without crashing or producing incorrect results.
+============================================================================================================================================================
+
+26.	What is SQL like
+SQL like is a clause that is used to search for a pattern in a column.
+============================================================================================================================================================
+
+27.	What is JDBC architecture 
+JDBC (Java Database Connectivity) is an API that provides a standard interface for Java programs to interact with databases. The JDBC architecture consists of the DriverManager class, which manages connections to databases, and the Driver interface, which provides a standard interface for database drivers.
+============================================================================================================================================================
+
+28.	What Java features you have used in your project. 
+This would depend on the specific project and its requirements. Some examples of Java features that could be used in a project include OOPs concepts, collections, streams, exception handling, and JDBC.
+============================================================================================================================================================
+
+29.	Program to print prime numbers: Here's an example program to print prime numbers:
+1public class PrimeNumbers {
+2  public static void main(String[] args) {
+3    int num = 10;
+4    System.out.println("Prime numbers from 1 to " + num + ":");
+5    for (int i = 2; i <= num; i++) {
+6      if (isPrime(i)) {
+7        System.out.print(i + " ");
+8      }
+9    }
+10  }
+12  public static boolean isPrime(int num) {
+13    if (num <= 1) {
+14      return false;
+15    }
+16    for (int i = 2; i * i <= num; i++) {
+17      if (num % i == 0) {
+18        return false;
+19      }
+20    }
+21    return true;
+22     }
+}
+============================================================================================================================================================
+
+30.	Program to print prime numbers using stream API: Here's an example program to print prime numbers using the stream API:
+java
+EditFull ScreenCopy code
+1import java.util.Arrays;
+2import java.util.stream.IntStream;
+3
+4public class PrimeNumbersStream {
+5  public static void main(String[] args) {
+6    int num = 10;
+7    System.out.println("Prime numbers from 1 to " + num + ":");
+8    IntStream.rangeClosed(2, num)
+9             .filter(PrimeNumbersStream::isPrime)
+10             .forEach(System.out::print);
+11  }
+12
+13  public static boolean isPrime(int num) {
+14    if (num <= 1) {
+15      return false;
+16    }
+17    return IntStream.rangeClosed(2, (int) Math.sqrt(num))
+18                   .noneMatch(n -> num % n == 0);
+19  }
+20}
+============================================================================================================================================================
+
+31.	Implement list code and iterate it: Here's an example of implementing a list and iterating over it:
+java
+EditFull ScreenCopy code
+1import java.util.ArrayList;
+2import java.util.List;
+3
+4public class ListExample {
+5  public static void main(String[] args) {
+6    List<String> names = new ArrayList<>();
+7    names.add("John");
+8    names.add("Jane");
+9    names.add("Doe");
+10
+11    for (String name : names) {
+12      System.out.println(name);
+13    }
+14	}
+15}
+============================================================================================================================================================
+
+32. what is Stored procedures
+ Stored procedures are precompiled SQL statements that are stored in a database.
+32.	How to use Stored procedure in JDBC
+ To use a stored procedure in JDBC, you can use the CallableStatement interface.
+============================================================================================================================================================
+
+33.	How to create an immutable object for database connection: To create an immutable object for database connection, you can use the final keyword to prevent the object from being modified after it is created.
+============================================================================================================================================================
+
+34.	What is Factory pattern
+ The Factory pattern is a design pattern that provides a way to create objects without specifying the exact class of object that will be created.
+============================================================================================================================================================
+
+35.	What is Singleton pattern
+ The Singleton pattern is a design pattern that ensures that a class has only one instance, and provides a global point of access to that instance.
+============================================================================================================================================================
+
+36.	What is User defined Expectation
+w User defined Expectation is a feature of JUnit that allows you to define custom expectations for a test.
+============================================================================================================================================================
+
+37.	What is Callable Statement
+Callable Statement is an interface in JDBC that is used to execute stored procedures.
+============================================================================================================================================================
+
+38.	Write Using lambda to traverse an ArrayList
+Here's an example of using a lambda expression to traverse an ArrayList:
+import java.util.ArrayList;
+import java.util.List;
+
+4public class ArrayListLambdaExample {
+5  public static void main(String[] args) {
+6    List<String> names = new ArrayList<>();
+7    names.add("John");
+8    names.add("Jane");
+9    names.add("Doe");
+
+11    names.forEach(name -> System.out.println(name));
+}
+13   }
+============================================================================================================================================================
+
+39. what is Singleton with example (design patterns)
+ The Singleton pattern is a design pattern that ensures that a class has only one instance, and provides a global point of access to that instance. Here's an example of a Singleton class:
+java
+EditFull ScreenCopy code
+1public class Singleton {
+2  private static Singleton instance;
+
+4  private Singleton() {}
+6  public static Singleton getInstance() {
+    if (instance == null) {
+     instance = new Singleton();
+   }
+    return instance;
+  }
+}
+============================================================================================================================================================
+
+40. What is User defined Exception
+A custom exception is an exception that is defined by the user to handle specific error conditions. User-defined exceptions in Java are custom exceptions that a developer creates for handling specific error conditions in their application. These are not provided by Java's standard exception classes but are defined by the programmer to address particular issues that are unique to the application or its business logic
+// A Class that represents use-defined exception
+
+class MyException extends Exception {
+	public MyException(String s)
+	{
+		// Call constructor of parent Exception
+		super(s);
+	}
+}
+
+// A Class that uses above MyException
+public class Main {
+	// Driver Program
+	public static void main(String args[])
+	{
+		try {
+			// Throw an object of user defined exception
+			throw new MyException("GeeksGeeks");
+		}
+		catch (MyException ex) {
+			System.out.println("Caught");
+
+			// Print the message from MyException object
+			System.out.println(ex.getMessage());
+		}
+	}
+}
+============================================================================================================================================================
+
+41. Spring framework
+The Spring framework can be considered as a collection of sub-frameworks, also called layers, such as Spring AOP. Spring Object-Relational Mapping (Spring ORM). Spring Web Flow, and Spring Web MVC. It is a lightweight application framework used for developing enterprise applications. You can use any of these modules separately while constructing a Web application. The modules may also be grouped together to provide better functionalities in a Web application. Spring framework is loosely coupled because of dependency Injection.
+42.  can static method be overloaded
+•	The static method is resolved at compile time cannot be overridden by a subclass. An instance method is resolved at runtime can be overridden.
+•	A static method can be overloaded.
+============================================================================================================================================================
+
+43. Stored procedures How to use Stored procedure in JDBC?
+JDBC or Java Database Connectivity is a Java API to connect and execute the query with the database. It is a specification from Sun microsystems that provides a standard abstraction(API or Protocol) for java applications to communicate with various databases. It provides the language with java database connectivity standards. It is used to write programs required to access databases.
+Stored Procedure
+Stored procedure is a set of SQL statements stored together as a single block of code in the database which can be reused multiple times without having to write the queries again. A stored procedure may provide multiple output values and accepts input as well as output parameters.
+DELIMITER $$
+CREATE PROCEDURE <procedure_name> ([IN|OUT|INOUT] <parameter_name> DATATYPE,...)
+BEGIN
+   --statements--
+END$$
+DELIMITER ;
+import java.sql.*; 
+
+public class UpdateEmpSalary { 
+	public static void main(String[] args) { 
+		Connection con=null; 
+		try
+		{ 
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/gfg","root","root"); 
+			CallableStatement cs=con.prepareCall("{call updateEmpSalary(?,?)}"); 
+			cs.setInt(1,101); 
+			cs.setDouble(2,0.1); 
+			cs.executeUpdate(); 
+		} 
+		catch (Exception e) 
+		{ 
+			System.out.println(e); 
+		} 
+		finally { 
+			try
+			{ 
+				con.close(); 
+			} 
+			catch (SQLException e) 
+			{ 
+				System.out.println(e); 
+			} 
+		} 
+	} 
+}
+============================================================================================================================================================
+
+44. Callable Statement
+CallableStatement interface is used to call the stored procedures and functions.
+We can have business logic on the database by the use of stored procedures and functions that will make the performance better because these are precompiled.
+The CallableStatement of JDBC API is used to call a stored procedure. A Callable statement can have output parameters, input parameters, or both. The prepareCall() method of connection interface will be used to create CallableStatement object.
+// Java program to use Callable Statement
+// in Java to call Stored Procedure
+
+package javaapplication1;
+
+import java.sql.*;
+
+public class JavaApplication1 {
+
+	public static void main(String[] args) throws Exception
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+	
+		// Getting the connection
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/root", "acm", "acm");
+	
+		String sql_string = "insert into students values(?,?,?)";
+	
+		// Preparing a CallableStateement
+		CallableStatement cs = con.prepareCall(sql_string);
+	
+		cs.setString(1, "geek1");
+		cs.setString(2, "python");
+		cs.setString(3, "beginner");
+		cs.execute();
+		System.out.print("uploaded successfully\n");
+	}
+}
+============================================================================================================================================================
+
+45. .using lambda traverse arraylist
+import java.util.ArrayList;
+
+class Main {
+  public static void main(String[] args) {
+    // create an ArrayList
+    ArrayList<String> languages = new ArrayList<>();
+
+    // add elements to the ArrayList
+    languages.add("Java");
+    languages.add("Python");
+    languages.add("JavaScript");
+
+    // print arraylist
+    System.out.print("ArrayList: ");
+
+    // iterate over each element of arraylist
+    // using forEach() method
+    languages.forEach((e) -> {
+      System.out.print(e + ", ");
+    });
+  }
+}
+============================================================================================================================================================
+
+46. private variable overridden
+ In Java, methods declared as private can never be overridden, they are in-fact bounded during compile time. This behavior is different from C++. In C++, we can have virtual private methods
+============================================================================================================================================================
+
+47. abstrct override
+An abstract method is a method that is declared, but contains no implementation. you can override both abstract and normal methods inside an abstract class. only methods declared as final cannot be overridden.
+============================================================================================================================================================
+
+48. Bootstrap
+Bootstrap is a free, open source front-end development framework for the creation of websites and web apps. Designed to enable responsive development of mobile-first websites, Bootstrap provides a collection of syntax for template designs.
+============================================================================================================================================================
+
+49. What is grid in bootstrap
+Bootstrap's grid system allows up to 12 columns across the page.
+If you do not want to use all 12 column individually, you can group the columns together to create wider columns:
+Bootstrap's grid system is responsive, and the columns will re-arrange depending on the screen size: On a big screen it might look better with the content organized in three columns, but on a small screen it would be better if the content items were stacked on top of each other.
+50. Composition ,aggregation and association in Java
+Association is a relation between two separate classes which is established through their Objects. Association can be one-to-one, one-to-many, many-to-one, many-to-many. In Object-Oriented programming, an Object communicates to another object to use functionality and services provided by that object. Composition and Aggregation are the two forms of association. 
+Aggregation
+It is a special form of Association where:  
+•	It represents Has-A’s relationship.
+•	It is a unidirectional association i.e. a one-way relationship. For example, a department can have students but vice versa is not possible and thus unidirectional in nature.
+•	In Aggregation, both entries can survive individually which means ending one entity will not affect the other entity.
+Composition 
+Composition is a restricted form of Aggregation in which two entities are highly dependent on each other.  
+•	It represents part-of relationship.
+•	In composition, both entities are dependent on each other.
+•	When there is a composition between two entities, the composed object cannot exist without the other entity.
+ ============================================================================================================================================================
+
+
+51. Sorting in java
+Whenever we do hear sorting algorithms come into play such as selection sort, bubble sort, insertion sort, radix sort, bucket sort, etc but if we look closer here we are not asked to use any kind of algorithms. It is as simple sorting with the help of linear and non-linear data structures present within java. So there is sorting done with the help of brute force in java with the help of loops and there are two in-built methods to sort in Java. 
+Ways of sorting in Java
+1.	Using loops
+2.	Using sort() method of Arrays class
+3.	Using sort method of Collections class
+4.	Sorting on a subarray
+============================================================================================================================================================
+
+52. Outer and inner class
+In Java, inner class refers to the class that is declared inside class or interface which were mainly introduced, to sum up, same logically relatable classes as Java is purely object-oriented so bringing it closer to the real world. Now geeks you must be wondering why they were introduced? 
+There are certain advantages associated with inner classes are as follows:
+•	Making code clean and readable.
+•	Private methods of the outer class can be accessed, so bringing a new dimension and making it closer to the real world.
+•	Optimizing the code module.
+There are basically four types of inner classes in java.
+
+Nested Inner Class
+Method Local Inner Classes
+Static Nested Classes
+Anonymous Inner Classes
+ Java inner class can be declared private, public, protected, or with default access whereas an outer class can have only public or default access. 
+53. Singleton class
+A singleton class in Java ensures only one instance of itself exists. To make one, create a class with a private static instance variable and a private constructor. Then, provide a public static method to access the instance. This method checks if the instance exists; if not, it creates one.
+54. Can u have a private constructor
+In Java, we can declare a constructor as private using the private access specifier. If a constructor is declared private, we can't create an object of the class, except within the class. A private constructor is used when we want to limit the way objects of a class are instantiated.
+55. Why and how to use private constructor
+public class A  
+{  
+//craeting a private constructor   
+private A()  
+{  
+}  
+void display()  
+{  
+System.out.println("Private Constructor");  
+}  
+}  
+private class Test  
+{  
+public static void main(String args[])  
+{  
+//compile time error  
+A obj = new A();   
+}  
+}
+============================================================================================================================================================
+
+56. Get the 3rd highest salary from each dept
+WITH salaries_ranks AS (
+SELECT e.first_name,
+ e.last_name,
+ d.department_name,
+ salary,
+ ROW_NUMBER() OVER (PARTITION BY d.id ORDER BY salary DESC
+ ) AS salary_rank
+FROM department d JOIN employee e ON d.id = e.department_id
+)
+ 
+SELECT *
+FROM salaries_ranks
+WHERE salary_rank = 3;
+
+============================================================================================================================================================
+
+
